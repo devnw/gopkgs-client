@@ -20,7 +20,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <NavBar pages={this.pages} />
+        <NavBar className="header" pages={this.pages} />
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

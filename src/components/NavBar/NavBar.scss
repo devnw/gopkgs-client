@@ -1,6 +1,6 @@
 @use '../../variables' as v;
 
-.nav-bar {
+.app-bar {
   height: 80px;
   color: #fff;
   background-color: v.$primary;
@@ -14,7 +14,7 @@
       height: 100%;
     }
   }
-  .nav-links {
+  .app-links {
     color: #fff;
     padding: 10px;
     &:hover {

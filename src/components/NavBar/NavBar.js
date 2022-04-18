@@ -24,7 +24,7 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <AppBar position="static">
+      <AppBar position="static" className="app-bar">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -43,6 +43,7 @@ export default class NavBar extends Component {
               {this.pages.map((page) => (
                 <Button
                   key={page}
+                  className="app-links"
                   // onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
@@ -50,6 +51,7 @@ export default class NavBar extends Component {
                 </Button>
               ))}
             </Box>
+
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton sx={{ p: 0 }}>
