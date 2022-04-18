@@ -21,6 +21,11 @@ export default class NavBar extends Component {
     super(props);
     this.pages = props.pages;
     this.settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+    this.user = {
+      name: '',
+      avatar: '',
+    }
   }
 
   state = {
@@ -36,7 +41,7 @@ export default class NavBar extends Component {
     this.setState({ anchorElUser: event.currentTarget });
   };
 
-  handleCloseNavMenu = () => {
+  handleCloseNavMenu = (event) => {
     this.setState({ anchorElNav: null });
   };
 
@@ -47,7 +52,7 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <AppBar position="static" className="app-bar">
+      <AppBar position="static" sx={{ bgcolor: "#0E2E3F" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -93,7 +98,9 @@ export default class NavBar extends Component {
             >
               {this.pages.map((page) => (
                 <MenuItem key={page} onClick={this.handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" sx={{ textTransform: "capitalize" }}>
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -107,7 +114,7 @@ export default class NavBar extends Component {
                   onClick={this.handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                    {page}
                 </Button>
               ))}
             </Box>
@@ -115,7 +122,7 @@ export default class NavBar extends Component {
            <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={this.handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={this.user.name} src={this.user.avatar} />
               </IconButton>
             </Tooltip>
             <Menu
