@@ -20,16 +20,16 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <NavBar className="header" pages={this.pages} />
         <Router>
+          <NavBar className="header" pages={this.pages} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/modules" element={<Mods />} />
             <Route path="/domains" element={<Domains />} />
           </Routes>
+          <Footer logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"} />
         </Router>
-        <Footer logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"} />
       </>
     );
   }

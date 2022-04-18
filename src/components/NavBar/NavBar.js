@@ -1,4 +1,5 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
 import AppBar from '@mui/material/AppBar';
@@ -97,7 +98,11 @@ export default class NavBar extends Component {
               }}
             >
               {this.pages.map((page) => (
-                <MenuItem key={page} onClick={this.handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={this.handleCloseNavMenu}
+                  component={Link}
+                  to={'/' + page.toLowerCase()}>
                   <Typography textAlign="center" sx={{ textTransform: "capitalize" }}>
                     {page}
                   </Typography>
@@ -109,10 +114,18 @@ export default class NavBar extends Component {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {this.pages.map((page) => (
                 <Button
+                  component={Link}
+                  to={'/' + page.toLowerCase()}
                   key={page}
-                  className="app-links"
+                  // className="app-links"
                   onClick={this.handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{ 
+                    my: 2,
+                    color: 'white',
+                    display: 'block',
+                  '&:hover': {
+                    background: "#185A7D",
+                  },}}
                 >
                     {page}
                 </Button>
