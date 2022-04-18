@@ -1,14 +1,33 @@
+@use '../../variables' as v;
+
 .nav-bar {
   height: 80px;
   color: #fff;
-  background-color: navy;
+  background-color: v.$primary;
   display: flex;
   align-items: center;
-  .nav-links {
-    color: #fff;
-    padding: 10px 30px;
-    &:hover {
-      background-color: darken(navy, 10%);
+  .nav-bar-logo {
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    img {
+      height: 100%;
     }
   }
+  .nav-links {
+    color: #fff;
+    padding: 10px;
+    &:hover {
+      background-color: darken(v.$secondary, 10%);
+    }
+  }
+}
+
+.logo {
+  height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    img {
+      height: 100%;
+    }
 }
