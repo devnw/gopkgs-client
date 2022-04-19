@@ -20,12 +20,12 @@ export default class Domain extends Component {
         <Box
           component="form"
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
             padding: "10px",
           }}
         >
           <TextField
             required
+            fullWidth
             id="outlined-required"
             label="Domain"
             placeholder="sub.mydomain.com"
