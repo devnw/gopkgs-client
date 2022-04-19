@@ -4,11 +4,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
+const domainPattern =
+  /^(?:(?:(?:[a-zA-z-]+):\/{1,3})?(?:[a-zA-Z0-9])(?:[a-zA-Z0-9\-.]){1,61}(?:\.[a-zA-Z]{2,})+|\[(?:(?:(?:[a-fA-F0-9]){1,4})(?::(?:[a-fA-F0-9]){1,4}){7}|::1|::)\]|(?:(?:[0-9]{1,3})(?:\.[0-9]{1,3}){3}))(?::[0-9]{1,5})?$/g;
 export default class Domain extends Component {
   constructor(props) {
     super(props);
-    this.domainPattern =
-      "^((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}.(xn--)?([a-z0-9-]{1,61}|[a-z0-9-]{1,30}.[a-z]{2,})$";
     this.state = {
       domain: props.domain,
     };
@@ -24,7 +24,7 @@ export default class Domain extends Component {
   handleAddDomain = (event) => {
     event.preventDefault();
 
-    if (!this.state.domain?.match(this.domainPattern)) {
+    if (!this.state.domain?.match(domainPattern)) {
       console.log("Invalid domain");
       return;
     }
