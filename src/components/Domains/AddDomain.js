@@ -10,13 +10,34 @@ export default class Domain extends Component {
     this.domainPattern =
       "^((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}.(xn--)?([a-z0-9-]{1,61}|[a-z0-9-]{1,30}.[a-z]{2,})$";
     this.state = {
-      name: props.name,
+      domain: props.domain,
     };
+    this.add = props.add;
   }
+
+  handleChange = (event) => {
+    this.setState({
+      domain: event.target.value,
+    });
+  };
+
+  handleAddDomain = (event) => {
+    event.preventDefault();
+
+    if (!this.state.domain?.match(this.domainPattern)) {
+      console.log("Invalid domain");
+      return;
+    }
+
+    this.add({
+      name: this.state.domain,
+      description: "",
+    });
+  };
 
   render() {
     return (
-      <Card className="add-domain">
+      <Card>
         <Box
           component="form"
           sx={{
@@ -29,18 +50,23 @@ export default class Domain extends Component {
             id="outlined-required"
             label="Domain"
             placeholder="sub.mydomain.com"
+            onChange={this.handleChange}
           />
-        </Box>
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
-            padding: "10px",
-            m: 1,
-            textAlign: "right",
-          }}
-        >
-          <Button variant="contained">Add</Button>
+
+          <div
+            style={{
+              paddingTop: "10px",
+              textAlign: "right",
+            }}
+          >
+            <Button
+              variant="contained"
+              type="submit"
+              onClick={this.handleAddDomain}
+            >
+              Add
+            </Button>
+          </div>
         </Box>
       </Card>
     );
