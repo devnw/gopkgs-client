@@ -12,17 +12,48 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
 const App = (props) => {
-  const pages = ["home", "about", "modules", "domains"];
+  const pages = [
+    {
+      path: "/",
+      title: "Home",
+      component: Home,
+      exact: true,
+    },
+    {
+      path: "/about",
+      title: "About",
+      component: About,
+      exact: true,
+    },
+    {
+      path: "/mods",
+      title: "Mods",
+      component: Mods,
+      exact: true,
+      authenticated: true,
+    },
+    {
+      path: "/domains",
+      title: "Domains",
+      component: Domains,
+      exact: true,
+      authenticated: true,
+    },
+  ];
 
   return (
     <>
       <Router>
         <NavBar className="header" pages={pages} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/modules" element={<Mods />} />
-          <Route path="/domains" element={<Domains />} />
+          {pages.map((page) => (
+            <Route
+              key={page.path}
+              path={page.path}
+              exact={page.exact}
+              element={page.component()}
+            />
+          ))}
         </Routes>
         <Footer
           logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}

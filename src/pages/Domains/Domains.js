@@ -4,6 +4,8 @@ import Container from "@mui/material/Container";
 import AddDomain from "../../components/Domains/AddDomain";
 import DomainsList from "../../components/Domains/DomainsList";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 import "./Domains.scss";
 
 const doms = [
@@ -21,6 +23,11 @@ const doms = [
 
 const Domains = (props) => {
   const [domains, setDomains] = useState(doms);
+
+  const { isAuthenticated } = useAuth0();
+  if (!isAuthenticated) {
+    return <div />;
+  }
 
   const addDomain = (domain) => {
     if (domain.name === "") {

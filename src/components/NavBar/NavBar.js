@@ -88,44 +88,48 @@ const NavBar = (props) => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {props.pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  component={Link}
-                  to={"/" + page.toLowerCase()}
-                >
-                  <Typography
-                    textAlign="center"
-                    sx={{ textTransform: "capitalize" }}
+              {props.pages.map((page) =>
+                page.authenticated && !isAuthenticated ? null : (
+                  <MenuItem
+                    key={page.path}
+                    onClick={handleCloseNavMenu}
+                    component={Link}
+                    to={page.path}
                   >
-                    {page}
-                  </Typography>
-                </MenuItem>
-              ))}
+                    <Typography
+                      textAlign="center"
+                      sx={{ textTransform: "capitalize" }}
+                    >
+                      {page.title}
+                    </Typography>
+                  </MenuItem>
+                )
+              )}
             </Menu>
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {props.pages.map((page) => (
-              <Button
-                component={Link}
-                to={"/" + page.toLowerCase()}
-                key={page}
-                // className="app-links"
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  "&:hover": {
-                    background: "#185A7D",
-                  },
-                }}
-              >
-                {page}
-              </Button>
-            ))}
+            {props.pages.map((page) =>
+              page.authenticated && !isAuthenticated ? null : (
+                <Button
+                  component={Link}
+                  to={page.path}
+                  key={page.path}
+                  // className="app-links"
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    "&:hover": {
+                      background: "#185A7D",
+                    },
+                  }}
+                >
+                  {page.title}
+                </Button>
+              )
+            )}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             {!isAuthenticated ? (
