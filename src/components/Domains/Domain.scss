@@ -1,31 +1,16 @@
-.domain-name {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #000;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+.roundIconBorder {
+  border: 2px solid white;
+  border-radius: 100%;
+  background-color: white;
+  vertical-align: middle;
 }
 
 .verified {
+  @extend .roundIconBorder;
   color: green;
 }
 
 .unverified {
+  @extend .roundIconBorder;
   color: red;
-}
-
-.mod-detail {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  text-align: left;
 }
