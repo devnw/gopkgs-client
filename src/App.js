@@ -1,20 +1,20 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { Component } from "react";
 
 // import pages
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Mods from './pages/Mods/Mods';
-import Domains from './pages/Domains/Domains';
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Mods from "./pages/Mods/Mods";
+import Domains from "./pages/Domains/Domains";
 
 // import components
-import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.pages = ['home', 'about', 'modules', 'domains'];
+    this.pages = ["home", "about", "modules", "domains"];
   }
 
   render() {
@@ -28,7 +28,9 @@ export default class App extends Component {
             <Route path="/modules" element={<Mods />} />
             <Route path="/domains" element={<Domains />} />
           </Routes>
-          <Footer logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"} />
+          <Footer
+            logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
+          />
         </Router>
       </>
     );

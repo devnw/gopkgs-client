@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./NavBar.scss";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,6 +13,9 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+
+import "./NavBar.scss";
+import LoginButton from "../Auth0/LoginButton";
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -134,7 +136,7 @@ export default class NavBar extends Component {
                 </Button>
               ))}
             </Box>
-
+            <LoginButton />
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={this.handleOpenUserMenu} sx={{ p: 0 }}>
