@@ -19,19 +19,23 @@ const doms = [
 ];
 
 export default class Domains extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      domains: doms,
-    };
-  }
+  state = {
+    domains: doms,
+  };
 
-  addDomain(domain) {
-    console.log(domain);
+  addDomain = (domain) => {
+    if (domain.name === "") {
+      return;
+    }
+
+    if (this.state.domains.find((d) => d.name === domain.name)) {
+      return;
+    }
+
     this.setState({
-      domains: [...this.state.domains, domain],
+      domains: [domain, ...this.state.domains],
     });
-  }
+  };
 
   render() {
     return (

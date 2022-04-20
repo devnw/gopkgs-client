@@ -30,6 +30,7 @@ export default class Domain extends Component {
     }
 
     this.add({
+      id: Math.random(),
       name: this.state.domain,
       description: "",
     });

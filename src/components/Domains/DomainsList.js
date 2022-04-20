@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
+
+import Domain from "./Domain";
 
 export default class Domains extends Component {
   constructor(props) {
@@ -10,6 +11,14 @@ export default class Domains extends Component {
     };
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevProps.domains !== this.props.domains) {
+      this.setState({
+        domains: this.props.domains,
+      });
+    }
+  };
+
   render() {
     if (this.state.domains?.length <= 0) {
       return <div />;
@@ -18,11 +27,13 @@ export default class Domains extends Component {
     return (
       <Card sx={{ marginTop: "10px", padding: "10px" }}>
         <h1 className="">Your Domains</h1>
-        {this.state.domains?.map((domain, index) => (
-          <div key={domain.id}>
-            <h2>{domain.name}</h2>
-            <p>{domain.description}</p>
-          </div>
+        {this.state.domains?.map((domain) => (
+          <Domain
+            key={domain.id}
+            id={domain.id}
+            name={domain.name}
+            description={domain.description}
+          />
         ))}
       </Card>
     );

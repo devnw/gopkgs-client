@@ -6,20 +6,28 @@ import "./Domain.scss";
 export default class Domain extends Component {
   constructor(props) {
     super(props);
-    this.name = props.name;
-    this.owner = props.owner;
-    this.maintainer = props.maintainer;
-    this.validateBy = props.validateBy;
-    this.validated = props.validated;
-    this.updated = props.updated;
-    this.token = props.token;
-    this.modules = props.modules;
+    this.state = {
+      id: props.id,
+      name: props.name,
+      description: props.description,
+      owner: props.owner,
+      maintainer: props.maintainer,
+      validateBy: props.validateBy,
+      validated: props.validated,
+      updated: props.updated,
+      token: props.token,
+      modules: props.modules,
+    };
   }
 
   render() {
+    console.log(this.state.id);
     return (
-      <Card className="domain">
-        <div className="domain-name__name">{this.name}</div>
+      <Card key={this.state.id}>
+        <div>
+          <h2>{this.state.name}</h2>
+          <p>{this.state.description}</p>
+        </div>
       </Card>
     );
   }
