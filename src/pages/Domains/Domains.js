@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+
 import Container from "@mui/material/Container";
 import AddDomain from "../../components/Domains/AddDomain";
 import DomainsList from "../../components/Domains/DomainsList";
@@ -18,31 +19,27 @@ const doms = [
   },
 ];
 
-export default class Domains extends Component {
-  state = {
-    domains: doms,
-  };
+const Domains = (props) => {
+  const [domains, setDomains] = useState(doms);
 
-  addDomain = (domain) => {
+  const addDomain = (domain) => {
     if (domain.name === "") {
       return;
     }
 
-    if (this.state.domains.find((d) => d.name === domain.name)) {
+    if (domains.find((d) => d.name === domain.name)) {
       return;
     }
 
-    this.setState({
-      domains: [domain, ...this.state.domains],
-    });
+    setDomains([domain, ...domains]);
   };
 
-  render() {
-    return (
-      <Container sx={{ padding: "10px" }}>
-        <AddDomain add={this.addDomain} />
-        <DomainsList domains={this.state.domains} />
-      </Container>
-    );
-  }
-}
+  return (
+    <Container sx={{ padding: "10px" }}>
+      <AddDomain add={addDomain} />
+      <DomainsList domains={domains} />
+    </Container>
+  );
+};
+
+export default Domains;

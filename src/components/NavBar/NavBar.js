@@ -18,13 +18,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import "./NavBar.scss";
 import LoginButton from "../Auth0/LoginButton";
-import LogoutButton from "../Auth0/LogoutButton";
 
 const NavBar = (props) => {
   const { user, isAuthenticated, isLoading, logout } = useAuth0();
 
-  console.log(user);
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
+  // const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [anchorElNav, setanchorElNav] = useState(null);
   const [anchorElUser, setanchorElUser] = useState(null);
 
@@ -172,34 +170,6 @@ const NavBar = (props) => {
         </Toolbar>
       </Container>
     </AppBar>
-    // <div className='nav-bar'>
-    //   <a href='/'>
-    //     <img
-    //       src={process.env.PUBLIC_URL + "/images/logos/logo.svg"}
-    //       className="nav-bar-logo"
-    //       alt="Developer Network Logo Symbol" />
-    //   </a>
-
-    //   <Menu>
-    //     <MenuItem>
-    //       <a className='nav-links' href='/'>Main</a>
-    //     </MenuItem>
-    //     <MenuItem>
-    //       <a className='nav-links' href='/about'>About</a>
-    //     </MenuItem>
-    //     <MenuItem>
-    //       <a className='nav-links' href='/domains'>Domains</a>
-    //     </MenuItem>
-    //     <MenuItem>
-    //       <a className='nav-links' href='/modules'>Modules</a>
-    //     </MenuItem>
-    //   </Menu>
-    //   {/* <a className='nav-links' href='/'>Main</a>
-    //   <a className='nav-links' href='/about'>About</a>
-    //   <a className='nav-links' href='/domains'>Domains</a>
-    //   <a className='nav-links' href='/modules'>Modules</a> */}
-    //   <Button variant="contained">Login</Button>
-    // </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { Component } from "react";
+import React from "react";
 
 // import pages
 import Home from "./pages/Home/Home";
@@ -11,28 +11,25 @@ import Domains from "./pages/Domains/Domains";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.pages = ["home", "about", "modules", "domains"];
-  }
+const App = (props) => {
+  const pages = ["home", "about", "modules", "domains"];
 
-  render() {
-    return (
-      <>
-        <Router>
-          <NavBar className="header" pages={this.pages} />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/modules" element={<Mods />} />
-            <Route path="/domains" element={<Domains />} />
-          </Routes>
-          <Footer
-            logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
-          />
-        </Router>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Router>
+        <NavBar className="header" pages={pages} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/modules" element={<Mods />} />
+          <Route path="/domains" element={<Domains />} />
+        </Routes>
+        <Footer
+          logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
+        />
+      </Router>
+    </>
+  );
+};
+
+export default App;

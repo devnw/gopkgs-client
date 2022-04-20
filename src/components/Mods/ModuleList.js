@@ -1,11 +1,5 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class ModuleList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <div />;
-  }
-}
+const ModuleList = (props) => {
+  return <div />;
+};
