@@ -13,11 +13,63 @@ const doms = [
     id: 1,
     name: "example.com",
     description: "This is an example domain.",
+    modules: [
+      {
+        id: 1,
+        path: "module1",
+        type: "git",
+        repo: "https://github.com/example/module1",
+        website: "https://example.com",
+        docs: "https://example.com/docs",
+      },
+      {
+        id: 1,
+        path: "module2",
+        type: "git",
+        repo: "https://github.com/example/module1",
+        website: "https://example.com",
+        docs: "https://example.com/docs",
+      },
+      {
+        id: 1,
+        path: "module3",
+        type: "git",
+        repo: "https://github.com/example/module1",
+        website: "https://example.com",
+        docs: "https://example.com/docs",
+      },
+      {
+        id: 1,
+        path: "module4",
+        type: "git",
+        repo: "https://github.com/example/module1",
+        website: "https://example.com",
+        docs: "https://example.com/docs",
+      },
+    ],
   },
   {
     id: 2,
     name: "example.net",
     description: "This is an example domain.",
+    modules: [
+      {
+        id: 1,
+        path: "module1",
+        type: "git",
+        repo: "https://github.com/example_net/module1",
+        website: "https://example.net",
+        docs: "https://example.net/docs",
+      },
+      {
+        id: 1,
+        path: "module2",
+        type: "git",
+        repo: "https://github.com/example_net/module1",
+        website: "https://example.net",
+        docs: "https://example.net/docs",
+      },
+    ],
   },
 ];
 
@@ -34,7 +86,12 @@ const Domains = (props) => {
       return;
     }
 
-    if (domains.find((d) => d.name === domain.name)) {
+    if (domains?.find((d) => d.name === domain.name)) {
+      return;
+    }
+
+    if (!domains) {
+      setDomains([domain]);
       return;
     }
 
@@ -44,7 +101,13 @@ const Domains = (props) => {
   return (
     <Container sx={{ padding: "10px" }}>
       <AddDomain add={addDomain} />
-      <DomainsList domains={domains} />
+
+      {domains?.length > 0 ? (
+        <div>
+          <h1 className="">Your Domains</h1>
+          <DomainsList domains={domains} />
+        </div>
+      ) : null}
     </Container>
   );
 };

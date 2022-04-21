@@ -10,17 +10,16 @@ const DomainList = (props) => {
   }
 
   return (
-    <Card sx={{ marginTop: "10px", padding: "10px" }}>
-      <h1 className="">Your Domains</h1>
+    <div>
       {props.domains?.map((domain) => (
         <Domain
           key={domain.id}
           id={domain.id}
           name={domain.name}
-          description={domain.description}
+          modules={domain.modules}
         />
       ))}
-    </Card>
+    </div>
   );
 };
 

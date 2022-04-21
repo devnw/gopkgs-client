@@ -25,7 +25,6 @@ const AddDomain = (props) => {
     props.add({
       id: Math.random(),
       name: domain,
-      description: "",
     });
   };
 

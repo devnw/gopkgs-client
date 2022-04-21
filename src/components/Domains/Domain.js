@@ -24,6 +24,9 @@ const Domain = (props) => {
         <Grid item xs={10}>
           <h2>{props.name}</h2>
           <p>{props.description}</p>
+          {props.modules?.length > 0 ? (
+            <h3>Registered Modules: {props.modules.length}</h3>
+          ) : null}
         </Grid>
         <Grid item xs={2}>
           {props.validated !== true ? (
