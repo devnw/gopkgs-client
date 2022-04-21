@@ -1,5 +1,10 @@
 @use './variables' as v;
 
+.main-wrapper {
+ position: relative;
+ min-height: 100vh;
+}
+
 .App {
   text-align: center;
 }

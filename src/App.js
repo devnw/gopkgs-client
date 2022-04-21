@@ -100,22 +100,24 @@ const App = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <NavBar className="header" pages={pages} />
-        <Routes>
-          {pages.map((page) => (
-            <Route
-              key={page.path}
-              path={page.path}
-              exact={page.exact}
-              element={page.component()}
-            />
-          ))}
-        </Routes>
-        <Footer
-          logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
-        />
-      </Router>
+      <div sx={{ position: "relative", minHeight: "100vh" }}>
+        <Router>
+          <NavBar className="header" pages={pages} />
+          <Routes>
+            {pages.map((page) => (
+              <Route
+                key={page.path}
+                path={page.path}
+                exact={page.exact}
+                element={page.component()}
+              />
+            ))}
+          </Routes>
+          <Footer
+            logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
+          />
+        </Router>
+      </div>
     </ThemeProvider>
   );
 };

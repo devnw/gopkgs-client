@@ -4,7 +4,7 @@ import "./Footer.scss";
 
 const Footer = (props) => {
   return (
-    <footer className="footer" style={{ position: "fixed", bottom: 0 }}>
+    <footer className="footer">
       <div>
         <img src={props.logo} className="logo" alt="logo" />
       </div>
