@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+import AddModule from "./AddModule";
+
 const ModuleList = (props) => {
   if (props.domains?.length <= 0) {
     return <div />;
@@ -41,11 +43,11 @@ const ModuleList = (props) => {
           <AccordionDetails
             sx={{
               padding: "10px",
-              bgcolor: "#185A7D",
               color: "#ffffff",
               marginTop: "10px",
             }}
           >
+            <AddModule />
             {/* <Grid container spacing={2} alignItems="center" justify="center">
                 <Grid item xs={10}>
                   <h2>{domain.name}</h2>

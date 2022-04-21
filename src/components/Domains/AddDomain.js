@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 
-import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import { Card, Box, Button, TextField, Grid } from "@mui/material";
 
 const domainPattern =
   /^(?:(?:(?:[a-zA-z-]+):\/{1,3})?(?:[a-zA-Z0-9])(?:[a-zA-Z0-9\-.]){1,61}(?:\.[a-zA-Z]{2,})+|\[(?:(?:(?:[a-fA-F0-9]){1,4})(?::(?:[a-fA-F0-9]){1,4}){7}|::1|::)\]|(?:(?:[0-9]{1,3})(?:\.[0-9]{1,3}){3}))(?::[0-9]{1,5})?$/g;
@@ -36,25 +33,35 @@ const AddDomain = (props) => {
           padding: "10px",
         }}
       >
-        <TextField
-          required
-          fullWidth
-          id="outlined-required"
-          label="Domain"
-          placeholder="sub.mydomain.com"
-          onChange={handleChange}
-        />
+        <Grid container spacing={2} alignItems="center" justify="center">
+          <Grid item xs={11}>
+            <TextField
+              required
+              fullWidth
+              id="outlined-required"
+              label="Domain"
+              placeholder="sub.mydomain.com"
+              onChange={handleChange}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            <Button
+              fullWidth
+              variant="contained"
+              type="submit"
+              onClick={handleAddDomain}
+            >
+              Add
+            </Button>
+          </Grid>
+        </Grid>
 
         <div
           style={{
             paddingTop: "10px",
             textAlign: "right",
           }}
-        >
-          <Button variant="contained" type="submit" onClick={handleAddDomain}>
-            Add
-          </Button>
-        </div>
+        ></div>
       </Box>
     </Card>
   );

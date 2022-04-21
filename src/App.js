@@ -87,6 +87,13 @@ const App = (props) => {
           },
         },
       },
+      MuiAccordionDetails: {
+        styleOverrides: {
+          root: {
+            backgroundColor: TERTIARY,
+          },
+        },
+      },
     },
   });
 
