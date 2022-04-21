@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Card, Grid } from "@mui/material";
+import {
+  Card,
+  Grid,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const ModuleList = (props) => {
   if (props.domains?.length <= 0) {
@@ -7,11 +15,47 @@ const ModuleList = (props) => {
   }
 
   return (
-    <Card sx={{ marginTop: "10px", padding: "10px" }}>
+    <div>
       {props.domains?.map((domain) => (
-        <div />
+        <Accordion
+          sx={{
+            padding: "10px",
+            bgcolor: "#185A7D",
+            color: "#ffffff",
+            marginTop: "10px",
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon sx={{ color: "#ffffff" }} />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+            sx={{
+              padding: "10px",
+              bgcolor: "#185A7D",
+              color: "#ffffff",
+              marginTop: "10px",
+            }}
+          >
+            <Typography variant="h2">{domain.name}</Typography>
+          </AccordionSummary>
+          <AccordionDetails
+            sx={{
+              padding: "10px",
+              bgcolor: "#185A7D",
+              color: "#ffffff",
+              marginTop: "10px",
+            }}
+          >
+            {/* <Grid container spacing={2} alignItems="center" justify="center">
+                <Grid item xs={10}>
+                  <h2>{domain.name}</h2>
+                </Grid>
+                <Grid item xs={2}></Grid>
+              </Grid> */}
+          </AccordionDetails>
+        </Accordion>
       ))}
-    </Card>
+    </div>
   );
 };
 

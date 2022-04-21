@@ -1,6 +1,6 @@
 import React from "react";
 import "./Mods.scss";
-import Container from "@mui/material/Container";
+import { Container, Typography } from "@mui/material";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -48,6 +48,29 @@ const doms = [
   },
   {
     id: 2,
+    name: "example.org",
+    description: "This is an example domain.",
+    modules: [
+      {
+        id: 1,
+        path: "module1",
+        type: "git",
+        repo: "https://github.com/example_org/module1",
+        website: "https://example.org",
+        docs: "https://example.org/docs",
+      },
+      {
+        id: 1,
+        path: "module2",
+        type: "git",
+        repo: "https://github.com/example_org/module1",
+        website: "https://example.org",
+        docs: "https://example.org/docs",
+      },
+    ],
+  },
+  {
+    id: 2,
     name: "example.net",
     description: "This is an example domain.",
     modules: [
@@ -79,7 +102,9 @@ const Mods = () => {
 
   return (
     <Container sx={{ padding: "10px" }}>
-      <h1 className="">Your Modules</h1>
+      <Typography variant="h1" component="div" gutterBottom>
+        Your Modules
+      </Typography>
       <ModuleList domains={doms} />
     </Container>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Container from "@mui/material/Container";
+import { Container, Typography } from "@mui/material";
 import AddDomain from "../../components/Domains/AddDomain";
 import DomainsList from "../../components/Domains/DomainsList";
 
@@ -104,7 +104,9 @@ const Domains = (props) => {
 
       {domains?.length > 0 ? (
         <div>
-          <h1 className="">Your Domains</h1>
+          <Typography variant="h1" component="div" gutterBottom>
+            Your Domains
+          </Typography>
           <DomainsList domains={domains} />
         </div>
       ) : null}
