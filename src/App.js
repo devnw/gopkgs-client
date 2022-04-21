@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
 
+import { red } from "@mui/material/colors";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
 // import pages
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -41,8 +44,54 @@ const App = (props) => {
     },
   ];
 
+  const PRIMARY = "#0E2E3F";
+  const SECONDARY = "#185A7D";
+  const TERTIARY = "#4197CB";
+  const DARK = "#2b2b2b";
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: PRIMARY,
+      },
+      secondary: {
+        main: SECONDARY,
+      },
+    },
+    typography: {
+      fontSize: 14,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+      h1: {
+        fontSize: "2.5rem",
+      },
+      h2: {
+        fontSize: "2rem",
+      },
+      h3: {
+        fontSize: "1.5rem",
+      },
+      h4: {
+        fontSize: "1rem",
+      },
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          containedPrimary: {
+            backgroundColor: SECONDARY,
+          },
+          containedSecondary: {
+            backgroundColor: TERTIARY,
+          },
+        },
+      },
+    },
+  });
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Router>
         <NavBar className="header" pages={pages} />
         <Routes>
@@ -59,7 +108,7 @@ const App = (props) => {
           logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
         />
       </Router>
-    </>
+    </ThemeProvider>
   );
 };
 
