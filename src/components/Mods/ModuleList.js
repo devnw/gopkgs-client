@@ -20,6 +20,7 @@ const ModuleList = (props) => {
     <div>
       {props.domains?.map((domain) => (
         <Accordion
+          key={domain.name}
           sx={{
             padding: "10px",
             bgcolor: "#185A7D",
@@ -47,7 +48,6 @@ const ModuleList = (props) => {
               marginTop: "10px",
             }}
           >
-            <AddModule />
             {/* <Grid container spacing={2} alignItems="center" justify="center">
                 <Grid item xs={10}>
                   <h2>{domain.name}</h2>

@@ -13,11 +13,17 @@ import {
 
 const AddModule = (props) => {
   const types = ["git", "mod", "svn", "hg", "fossil", "bzr"];
+  const [domain, setDomain] = useState(props.domains[0].name);
   const [name, setName] = useState("");
   const [type, setType] = useState(types[0]);
   const [repo, setRepo] = useState("");
-  const [website, setWebsite] = useState("");
+  // const [website, setWebsite] = useState("");
   const [docs, setDocs] = useState("");
+
+  const handleDomainChange = (event) => {
+    setDomain(event.target.value);
+  };
+
   const handleVCSChange = (event) => {
     setType(event.target.value);
   };
@@ -53,8 +59,30 @@ const AddModule = (props) => {
         }}
       >
         <Typography variant="h2">Add Module</Typography>
-        <Grid container spacing={2} alignItems="center" justify="center">
-          <Grid item xs={11}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ padding: "10px" }}
+          alignItems="center"
+          justify="center"
+        >
+          <Grid item xs={7}>
+            <Select
+              required
+              fullWidth
+              labelId="demo-select-small"
+              id="demo-select-small"
+              value={domain}
+              onChange={handleDomainChange}
+            >
+              {props.domains.map((domain) => (
+                <MenuItem key={domain.name} value={domain.name}>
+                  {domain.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </Grid>
+          <Grid item xs={4}>
             <TextField
               required
               fullWidth
@@ -69,11 +97,12 @@ const AddModule = (props) => {
               labelId="demo-select-small"
               id="demo-select-small"
               value={type}
-              label="VCS"
               onChange={handleVCSChange}
             >
               {types.map((type) => (
-                <MenuItem value={type}>{type.toUpperCase()}</MenuItem>
+                <MenuItem key={type} value={type}>
+                  {type.toUpperCase()}
+                </MenuItem>
               ))}
             </Select>
           </Grid>

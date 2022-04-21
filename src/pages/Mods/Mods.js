@@ -5,6 +5,7 @@ import { Container, Typography } from "@mui/material";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import ModuleList from "../../components/Mods/ModuleList";
+import AddModule from "../../components/Mods/AddModule";
 
 const doms = [
   {
@@ -102,6 +103,7 @@ const Mods = () => {
 
   return (
     <Container sx={{ padding: "10px" }}>
+      <AddModule domains={doms} />
       <Typography variant="h1" component="div" gutterBottom>
         Your Modules
       </Typography>

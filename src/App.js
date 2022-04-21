@@ -48,6 +48,7 @@ const App = (props) => {
   const SECONDARY = "#185A7D";
   const TERTIARY = "#4197CB";
   const DARK = "#2b2b2b";
+  const LIGHT = "#ffffff";
 
   const theme = createTheme({
     palette: {
@@ -90,7 +91,7 @@ const App = (props) => {
       MuiAccordionDetails: {
         styleOverrides: {
           root: {
-            backgroundColor: TERTIARY,
+            backgroundColor: LIGHT,
           },
         },
       },
