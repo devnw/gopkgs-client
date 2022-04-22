@@ -45,7 +45,8 @@ const ModuleList = (props) => {
             ) : (
               <Grid
                 container
-                spacing={2}
+                spacing={{ xs: 2 }}
+                columns={{ xs: 1, md: 2 }}
                 sx={{ padding: "10px" }}
                 alignItems="center"
                 justify="center"
