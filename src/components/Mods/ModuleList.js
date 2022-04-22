@@ -71,6 +71,7 @@ const ModuleList = (props) => {
             {domain.modules?.map((module) => (
               <Module
                 key={module.path}
+                domain={domain.name}
                 path={module.path}
                 type={module.type}
                 repo={module.repo}

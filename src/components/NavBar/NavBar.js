@@ -124,6 +124,7 @@ const NavBar = (props) => {
                     "&:hover": {
                       background: "#185A7D",
                     },
+                    textAlign: "center",
                   }}
                 >
                   {page.title}
