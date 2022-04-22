@@ -34,7 +34,7 @@ const AddDomain = (props) => {
         }}
       >
         <Grid container spacing={2} alignItems="center" justify="center">
-          <Grid item xs={11}>
+          <Grid item xs={12} md={11}>
             <TextField
               required
               fullWidth
@@ -44,13 +44,8 @@ const AddDomain = (props) => {
               onChange={handleChange}
             />
           </Grid>
-          <Grid item xs={1}>
-            <Button
-              fullWidth
-              variant="contained"
-              type="submit"
-              onClick={handleAddDomain}
-            >
+          <Grid fullWidth item xs={12} md={1} sx={{ textAlign: "right" }}>
+            <Button variant="contained" type="submit" onClick={handleAddDomain}>
               Add
             </Button>
           </Grid>
