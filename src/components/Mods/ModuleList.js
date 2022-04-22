@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import AddModule from "./AddModule";
+import Module from "./Module";
 
 const ModuleList = (props) => {
   if (props.domains?.length <= 0) {
@@ -68,12 +68,15 @@ const ModuleList = (props) => {
               marginTop: "10px",
             }}
           >
-            {/* <Grid container spacing={2} alignItems="center" justify="center">
-                <Grid item xs={10}>
-                  <h2>{domain.name}</h2>
-                </Grid>
-                <Grid item xs={2}></Grid>
-              </Grid> */}
+            {domain.modules?.map((module) => (
+              <Module
+                key={module.path}
+                path={module.path}
+                type={module.type}
+                repo={module.repo}
+                docs={module.docs}
+              />
+            ))}
           </AccordionDetails>
         </Accordion>
       ))}

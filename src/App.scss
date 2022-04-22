@@ -1,8 +1,7 @@
 @use './variables' as v;
 
-.main-wrapper {
- position: relative;
- min-height: 100vh;
+body {
+  background-color: #E1E5E7;
 }
 
 .App {

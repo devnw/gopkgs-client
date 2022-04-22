@@ -14,6 +14,8 @@ import Domains from "./pages/Domains/Domains";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
+import "./App.scss";
+
 const App = (props) => {
   const pages = [
     {
@@ -48,7 +50,8 @@ const App = (props) => {
   const SECONDARY = "#185A7D";
   const TERTIARY = "#4197CB";
   const DARK = "#2b2b2b";
-  const LIGHT = "#ffffff";
+  const LIGHT = "#687C87";
+  const BACK = "#A5B1B7";
 
   const theme = createTheme({
     palette: {

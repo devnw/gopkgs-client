@@ -55,13 +55,6 @@ const AddDomain = (props) => {
             </Button>
           </Grid>
         </Grid>
-
-        <div
-          style={{
-            paddingTop: "10px",
-            textAlign: "right",
-          }}
-        ></div>
       </Box>
     </Card>
   );
