@@ -73,13 +73,12 @@ const AddModule = (props) => {
         <Typography variant="h2">Add Module</Typography>
         <Grid
           container
-          spacing={{ xs: 2}}
-          columns={{ xs: 1, md: 2 }}
+          spacing={{ xs: 2 }}
           sx={{ padding: "10px" }}
           alignItems="center"
           justify="center"
         >
-          <Grid item xs={7}>
+          <Grid item xs={12} sm={12} md={6}>
             <Select
               required
               fullWidth
@@ -99,7 +98,7 @@ const AddModule = (props) => {
               ))}
             </Select>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={10} s={9} md={5}>
             <TextField
               required
               fullWidth
@@ -109,7 +108,7 @@ const AddModule = (props) => {
               onChange={handleModuleChange}
             />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2} s={3} md={1}>
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
@@ -123,7 +122,7 @@ const AddModule = (props) => {
               ))}
             </Select>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} lg={6}>
             <TextField
               required
               fullWidth
@@ -134,7 +133,7 @@ const AddModule = (props) => {
               onChange={handleRepoChange}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} lg={6}>
             <TextField
               fullWidth
               id="outlined-required"
@@ -144,13 +143,8 @@ const AddModule = (props) => {
               onChange={handleDocsChange}
             />
           </Grid>
-          <Grid item xs={1}>
-            <Button
-              fullWidth
-              variant="contained"
-              type="submit"
-              onClick={handleAddDomain}
-            >
+          <Grid item fullWidth xs={12} sx={{ textAlign: "right" }}>
+            <Button variant="contained" type="submit" onClick={handleAddDomain}>
               Add
             </Button>
           </Grid>
