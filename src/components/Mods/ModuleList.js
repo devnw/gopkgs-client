@@ -31,6 +31,7 @@ const ModuleList = (props) => {
           <AccordionSummary
             expandIcon={<ExpandMoreIcon sx={{ color: "#ffffff" }} />}
             aria-controls="panel1a-content"
+            disabled={!domain.validated}
             id="panel1a-header"
             sx={{
               padding: "10px",
@@ -39,7 +40,26 @@ const ModuleList = (props) => {
               marginTop: "10px",
             }}
           >
-            <Typography variant="h2">{domain.name}</Typography>
+            {domain.validated ? (
+              <Typography variant="h2">{domain.name}</Typography>
+            ) : (
+              <Grid
+                container
+                spacing={2}
+                sx={{ padding: "10px" }}
+                alignItems="center"
+                justify="center"
+              >
+                <Grid item xs={6}>
+                  <Typography variant="h2">{domain.name}</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography sx={{ textAlign: "right" }} variant="h2">
+                    UNVALIDATED
+                  </Typography>
+                </Grid>
+              </Grid>
+            )}
           </AccordionSummary>
           <AccordionDetails
             sx={{

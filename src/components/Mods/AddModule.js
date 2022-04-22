@@ -13,7 +13,7 @@ import {
 
 const AddModule = (props) => {
   const types = ["git", "mod", "svn", "hg", "fossil", "bzr"];
-  const [domain, setDomain] = useState(props.domains[0].name);
+  const [domain, setDomain] = useState("");
   const [name, setName] = useState("");
   const [type, setType] = useState(types[0]);
   const [repo, setRepo] = useState("");
@@ -70,13 +70,17 @@ const AddModule = (props) => {
             <Select
               required
               fullWidth
-              labelId="demo-select-small"
-              id="demo-select-small"
+              id="domain-select"
               value={domain}
               onChange={handleDomainChange}
+              label="Domain"
             >
               {props.domains.map((domain) => (
-                <MenuItem key={domain.name} value={domain.name}>
+                <MenuItem
+                  disabled={!domain.validated}
+                  key={domain.name}
+                  value={domain}
+                >
                   {domain.name}
                 </MenuItem>
               ))}

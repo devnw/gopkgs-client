@@ -12,6 +12,7 @@ const doms = [
     id: 1,
     name: "example.com",
     description: "This is an example domain.",
+    validated: true,
     modules: [
       {
         id: 1,
