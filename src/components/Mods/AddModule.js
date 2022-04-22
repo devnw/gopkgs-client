@@ -47,7 +47,19 @@ const AddModule = (props) => {
   const handleAddDomain = (event) => {
     event.preventDefault();
 
-    props.add({});
+    props.updateDomain({
+      ...domain,
+      modules: [
+        {
+          id: Math.random(),
+          path: name,
+          type: type,
+          repo: repo,
+          docs: docs,
+        },
+        ...domain.modules,
+      ],
+    });
   };
 
   return (

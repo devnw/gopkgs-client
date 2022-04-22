@@ -97,18 +97,31 @@ const doms = [
 ];
 
 const Mods = () => {
+  const [domains, setDomains] = React.useState(doms);
+
   const { isAuthenticated } = useAuth0();
   if (!isAuthenticated) {
     return <div />;
   }
 
+  const updateDomain = (domain) => {
+    setDomains(
+      domains.map((d) => {
+        if (d.name === domain.name) {
+          return domain;
+        }
+        return d;
+      })
+    );
+  };
+
   return (
     <Container sx={{ padding: "10px" }}>
-      <AddModule domains={doms} />
+      <AddModule domains={domains} updateDomain={updateDomain} />
       <Typography variant="h1" component="div" gutterBottom>
         Your Modules
       </Typography>
-      <ModuleList domains={doms} />
+      <ModuleList domains={domains} />
     </Container>
   );
 };
