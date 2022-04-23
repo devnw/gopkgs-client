@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
 
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import {
+  ThemeProvider,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 
 // import pages
 import Home from "./pages/Home/Home";
@@ -52,7 +56,7 @@ const App = (props) => {
   const LIGHT = "#687C87";
   const BACK = "#A5B1B7";
 
-  const theme = createTheme({
+  let theme = createTheme({
     palette: {
       primary: {
         main: PRIMARY,
@@ -99,6 +103,8 @@ const App = (props) => {
       },
     },
   });
+
+  theme = responsiveFontSizes(theme);
 
   return (
     <ThemeProvider theme={theme}>

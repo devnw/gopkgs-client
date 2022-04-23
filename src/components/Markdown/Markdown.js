@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 
 const Markdown = (props) => {
-  const [md, setMd] = useState(props.md);
+  const [md, setMd] = useState("");
 
   useEffect(() => {
-    fetch(md)
+    fetch(props.md)
       .then((response) => response.text())
       .then((text) => {
         setMd(text);
