@@ -14,17 +14,16 @@ const Module = (props) => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Grid container spacing={2}>
-            <Grid item xs={10}>
+            <Grid item xs={12} md={11}>
               <Copy data={importPath}>
                 <Typography variant="h2" sx={{ fontWeight: "bold" }}>
                   {importPath}
                 </Typography>
               </Copy>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={12} md={1}>
               <Typography
                 sx={{
-                  textAlign: "right",
                   color: "#CB7541",
                   fontWeight: "bold",
                 }}
@@ -37,12 +36,12 @@ const Module = (props) => {
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={2}>
-            <Grid item s={12} md={3}>
+            <Grid item xs={12} md={3}>
               <Typography sx={{ fontWeight: "bold" }} variant="h3">
                 Repository
               </Typography>
             </Grid>
-            <Grid item s={12} md={9}>
+            <Grid item xs={12} md={9}>
               <Link href={props.repo}>
                 <Typography>{props.repo}</Typography>
               </Link>
@@ -51,12 +50,12 @@ const Module = (props) => {
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={2}>
-            <Grid item s={12} md={3}>
+            <Grid item xs={12} md={3}>
               <Typography sx={{ fontWeight: "bold" }} variant="h3">
                 Documentation
               </Typography>
             </Grid>
-            <Grid item s={12} md={9}>
+            <Grid item xs={12} md={9}>
               <Link href={props.docs}>
                 <Typography>{props.docs}</Typography>
               </Link>
