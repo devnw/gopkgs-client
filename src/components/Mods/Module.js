@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Grid, Typography } from "@mui/material";
+import { Card, Grid, Typography, Link } from "@mui/material";
 import Copy from "../Copy";
 
 const Module = (props) => {
@@ -14,17 +14,14 @@ const Module = (props) => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Grid container spacing={2}>
-            <Grid item xs={5}>
-              <Typography sx={{ fontWeight: "bold" }} variant="h3">
-                Import Path
-              </Typography>
-            </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={10}>
               <Copy data={importPath}>
-                <Typography>{importPath}</Typography>
+                <Typography variant="h2" sx={{ fontWeight: "bold" }}>
+                  {importPath}
+                </Typography>
               </Copy>
             </Grid>
-            <Grid item xs={12} s={1}>
+            <Grid item xs={2}>
               <Typography
                 sx={{
                   textAlign: "right",
@@ -40,25 +37,29 @@ const Module = (props) => {
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={2}>
-            <Grid item xs={5}>
+            <Grid item s={12} md={3}>
               <Typography sx={{ fontWeight: "bold" }} variant="h3">
                 Repository
               </Typography>
             </Grid>
-            <Grid item xs={7}>
-              <Typography>{props.repo}</Typography>
+            <Grid item s={12} md={9}>
+              <Link href={props.repo}>
+                <Typography>{props.repo}</Typography>
+              </Link>
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={2}>
-            <Grid item xs={5}>
+            <Grid item s={12} md={3}>
               <Typography sx={{ fontWeight: "bold" }} variant="h3">
                 Documentation
               </Typography>
             </Grid>
-            <Grid item xs={7}>
-              <Typography>{props.docs}</Typography>
+            <Grid item s={12} md={9}>
+              <Link href={props.docs}>
+                <Typography>{props.docs}</Typography>
+              </Link>
             </Grid>
           </Grid>
         </Grid>
