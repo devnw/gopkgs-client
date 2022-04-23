@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.scss";
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 
-export default function Home() {
+import Markdown from "../../components/Markdown/Markdown";
+import home from "./Home.md";
+
+const Home = () => {
   return (
     <Container sx={{ padding: "10px" }}>
-      <Typography variant="h1" component="div" gutterBottom>
-        GoPkgs Vanity Import Path Service
-      </Typography>
+      <Markdown key="HOME" md={home} />
     </Container>
   );
-}
+};
+
+export default Home;
