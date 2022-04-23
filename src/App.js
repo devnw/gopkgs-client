@@ -103,7 +103,7 @@ const App = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className='page-space'>
+      <div sx={{ position: "relative", minHeight: "100vh" }}>
         <Router>
           <NavBar className="header" pages={pages} />
           <Routes>
@@ -116,11 +116,11 @@ const App = (props) => {
               />
             ))}
           </Routes>
+          <Footer
+            logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
+          />
         </Router>
       </div>
-      <Footer
-        logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
-      />
     </ThemeProvider>
   );
 };

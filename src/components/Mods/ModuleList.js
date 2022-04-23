@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import {
-  Card,
   Grid,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
 } from "@mui/material";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import Module from "./Module";
+import "./ModuleList.scss";
 
 const ModuleList = (props) => {
   if (props.domains?.length <= 0) {
@@ -46,15 +48,14 @@ const ModuleList = (props) => {
               <Grid
                 container
                 spacing={{ xs: 2 }}
-                columns={{ xs: 1, md: 2 }}
                 sx={{ padding: "10px" }}
                 alignItems="center"
                 justify="center"
               >
-                <Grid item xs={6}>
+                <Grid fullWidth item xs={12} md={9}>
                   <Typography variant="h2">{domain.name}</Typography>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid fullWidth item xs={12} md={3}>
                   <Typography sx={{ textAlign: "right" }} variant="h2">
                     UNVALIDATED
                   </Typography>
@@ -71,6 +72,7 @@ const ModuleList = (props) => {
           >
             {domain.modules?.map((module) => (
               <Module
+                className="moduleListItem"
                 key={module.path}
                 domain={domain.name}
                 path={module.path}

@@ -7,6 +7,7 @@ import {
   Grid,
   Typography,
   InputLabel,
+  FormControl,
   Select,
   MenuItem,
 } from "@mui/material";
@@ -79,26 +80,29 @@ const AddModule = (props) => {
           justify="center"
         >
           <Grid item xs={12} sm={12} md={6}>
-            <Select
-              required
-              fullWidth
-              id="domain-select"
-              value={domain}
-              onChange={handleDomainChange}
-              label="Domain"
-            >
-              {props.domains.map((domain) => (
-                <MenuItem
-                  disabled={!domain.validated}
-                  key={domain.name}
-                  value={domain}
-                >
-                  {domain.name}
-                </MenuItem>
-              ))}
-            </Select>
+            <FormControl fullWidth>
+              <InputLabel>Domain</InputLabel>
+              <Select
+                required
+                fullWidth
+                id="domain-select"
+                value={domain}
+                label="Domain"
+                onChange={handleDomainChange}
+              >
+                {props.domains.map((domain) => (
+                  <MenuItem
+                    disabled={!domain.validated}
+                    key={domain.name}
+                    value={domain}
+                  >
+                    {domain.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
-          <Grid item xs={10} s={9} md={5}>
+          <Grid item xs={9} s={9} md={5}>
             <TextField
               required
               fullWidth

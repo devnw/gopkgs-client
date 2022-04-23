@@ -8,39 +8,59 @@ const Module = (props) => {
     <Card
       sx={{
         padding: "10px",
-        marginTop: "10px",
       }}
+      className={props.className}
     >
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={5}>
-              <Typography variant="h3">Import Path</Typography>
+              <Typography sx={{ fontWeight: "bold" }} variant="h3">
+                Import Path
+              </Typography>
             </Grid>
-            <Grid item xs={7}>
+            <Grid item xs={6}>
               <Copy data={importPath}>
-                <Typography variant="h3">{importPath}</Typography>
+                <Typography>{importPath}</Typography>
               </Copy>
             </Grid>
+            <Grid item xs={12} s={1}>
+              <Typography
+                sx={{
+                  textAlign: "right",
+                  color: "#CB7541",
+                  fontWeight: "bold",
+                }}
+                variant="h2"
+              >
+                {props.type.toUpperCase()}
+              </Typography>
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={6}>
-          <Typography sx={{ textAlign: "right" }} variant="h2">
-            {props.type}
-          </Typography>
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={5}>
-              <Typography variant="h3">Repository</Typography>
+              <Typography sx={{ fontWeight: "bold" }} variant="h3">
+                Repository
+              </Typography>
             </Grid>
             <Grid item xs={7}>
-              <Typography variant="h3">{props.repo}</Typography>
+              <Typography>{props.repo}</Typography>
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h3">{props.docs}</Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={5}>
+              <Typography sx={{ fontWeight: "bold" }} variant="h3">
+                Documentation
+              </Typography>
+            </Grid>
+            <Grid item xs={7}>
+              <Typography>{props.docs}</Typography>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Card>
