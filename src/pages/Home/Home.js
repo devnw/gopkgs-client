@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "@mui/material";
 
-import Markdown from "../../components/Markdown/Markdown";
+import Markdown from "../../components/Markdown";
 import home from "./Home.md";
 
 const Home = () => {

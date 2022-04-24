@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@mui/material";
 
-import Markdown from "../../components/Markdown/Markdown";
+import Markdown from "../../components/Markdown";
 import docs from "./Docs.md";
 
 const Docs = () => {

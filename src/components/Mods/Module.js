@@ -18,11 +18,13 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 import EditModule from "./EditModule";
+import DeleteDialog from "../DeleteDialog";
 
 const Module = (props) => {
   const importPath = props.domain + "/" + props.path;
 
   const [editOpen, setEditOpen] = React.useState(false);
+  const [deleteOpen, setDeleteOpen] = React.useState(false);
 
   const handleEditClickOpen = () => {
     setEditOpen(true);
@@ -34,6 +36,18 @@ const Module = (props) => {
 
   const handleEditModule = () => {
     setEditOpen(false);
+  };
+
+  const handleDeleteClickOpen = () => {
+    setDeleteOpen(true);
+  };
+
+  const handleDeleteClose = () => {
+    setDeleteOpen(false);
+  };
+
+  const handleDeleteModule = () => {
+    setDeleteOpen(false);
   };
 
   return (
@@ -122,9 +136,19 @@ const Module = (props) => {
           </Dialog>
           <IconButton>
             <Tooltip title={"Delete Module"}>
-              <DeleteForeverIcon fontSize="large" />
+              <DeleteForeverIcon
+                fontSize="large"
+                onClick={handleDeleteClickOpen}
+              />
             </Tooltip>
           </IconButton>
+          <DeleteDialog
+            title={`Delete Module ${importPath}`}
+            confirmationText={"Are you sure you want to delete this module?"}
+            open={deleteOpen}
+            handleClose={handleDeleteClose}
+            handleDelete={handleDeleteModule}
+          />
         </Grid>
       </Grid>
     </Card>
