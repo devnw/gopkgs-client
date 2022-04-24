@@ -42,10 +42,8 @@ const ValidateDomain = (props) => {
         {title}
       </DialogTitle>
       <DialogContent>
-        {props.verified ? (
-          <DialogContentText>
-            "Successfully Validated ${props.name}"
-          </DialogContentText>
+        {props.validated ? (
+          <DialogContentText>{`${props.name} is verified.`}</DialogContentText>
         ) : (
           <DialogContentText>
             {`${props.name} is not yet validated`}

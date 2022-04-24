@@ -44,7 +44,7 @@ const Domain = (props) => {
           ) : null}
         </Grid>
         <Grid item xs={4} md={2}>
-          {props.validated !== true ? (
+          {!props.validated ? (
             <Tooltip title={"This domain is not validated yet"}>
               <IconButton onClick={handleValidateOpen}>
                 <FontAwesomeIcon
@@ -55,11 +55,15 @@ const Domain = (props) => {
               </IconButton>
             </Tooltip>
           ) : (
-            <FontAwesomeIcon
-              size="4x"
-              icon={faCircleCheck}
-              className="verified"
-            />
+            <Tooltip title={"This domain has been verified"}>
+              <IconButton onClick={handleValidateOpen}>
+                <FontAwesomeIcon
+                  size="4x"
+                  icon={faCircleCheck}
+                  className="verified"
+                />
+              </IconButton>
+            </Tooltip>
           )}
         </Grid>
       </Grid>

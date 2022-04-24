@@ -17,6 +17,7 @@ const DomainList = (props) => {
           id={domain.id}
           name={domain.name}
           modules={domain.modules}
+          validated={domain.validated}
         />
       ))}
     </div>
