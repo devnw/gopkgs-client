@@ -12,6 +12,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Mods from "./pages/Mods/Mods";
 import Domains from "./pages/Domains/Domains";
+import Docs from "./pages/Docs/Docs";
 
 // import components
 import NavBar from "./components/NavBar/NavBar";
@@ -25,6 +26,12 @@ const App = (props) => {
       path: "/",
       title: "Home",
       component: Home,
+      exact: true,
+    },
+    {
+      path: "/docs",
+      title: "Docs",
+      component: Docs,
       exact: true,
     },
     {

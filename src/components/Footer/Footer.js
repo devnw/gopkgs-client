@@ -6,7 +6,9 @@ const Footer = (props) => {
   return (
     <footer className="footer">
       <div>
-        <img src={props.logo} className="logo" alt="logo" />
+        <a href="https://devnw.com">
+          <img src={props.logo} className="logo" alt="logo" />
+        </a>
       </div>
     </footer>
   );

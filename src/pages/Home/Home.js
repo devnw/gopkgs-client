@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Home.scss";
 import { Container } from "@mui/material";
 
 import Markdown from "../../components/Markdown/Markdown";

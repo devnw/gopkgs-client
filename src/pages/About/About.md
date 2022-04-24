@@ -14,9 +14,19 @@ Yes, it is free.
 
 Yup, you can use your own domain name for free.
 
+### Even or private repositories?
+
+Yes, even use private repositories.
+
+Private repositories require additional local configuration and setup. [Read more](/docs)
+
 ### Why would you do that?
 
 For reasons other than being a benevolent OSS Contributor? I don't know.
+
+### How do you cover the cost?
+
+Currently the service is hosted on GCP free tier and the associated cost is minimal. As the service expands it may become more expensive for me to cover the cost. If you would like to donate to the project you can sponsor the [Developer Network Github organization](https://github.com/devnw) through [Github Sponsors](https://github.com/sponsors/devnw).
 
 ## How does it work?
 

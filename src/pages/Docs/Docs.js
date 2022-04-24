@@ -2,14 +2,14 @@ import React from "react";
 import { Container } from "@mui/material";
 
 import Markdown from "../../components/Markdown/Markdown";
-import about from "./About.md";
+import docs from "./Docs.md";
 
-const About = () => {
+const Docs = () => {
   return (
     <Container sx={{ padding: "10px" }}>
-      <Markdown key="ABOUT" md={about} />
+      <Markdown key="DOCS" md={docs} />
     </Container>
   );
 };
 
-export default About;
+export default Docs;
