@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import {
-  Card,
-  Grid,
-  Typography,
-  Link,
-  Tooltip,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
-  IconButton,
 } from "@mui/material";
+
+import DangerousIcon from "@mui/icons-material/Dangerous";
 
 const DeleteDialog = (props) => {
   // const [open, setOpen] = useState(props.open);
@@ -33,7 +29,12 @@ const DeleteDialog = (props) => {
 
   return (
     <Dialog open={props.open} onClose={handleClose}>
-      <DialogTitle>{title}</DialogTitle>
+      <DialogTitle>
+        <div style={{ textAlign: "center", color: "darkred" }}>
+          <DangerousIcon fontSize="large" style={{ padding: "10px" }} />
+        </div>
+        <div>{title}</div>
+      </DialogTitle>
       <DialogContent>
         <DialogContentText>{confirmationText}</DialogContentText>
       </DialogContent>
