@@ -15,4 +15,4 @@ const Markdown = (props) => {
   return <ReactMarkdown>{md}</ReactMarkdown>;
 };
 
-export default Markdown;
+export default React.memo(Markdown);
