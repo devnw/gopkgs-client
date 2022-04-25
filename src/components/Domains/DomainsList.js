@@ -16,6 +16,7 @@ const DomainList = (props) => {
           key={domain.id}
           id={domain.id}
           name={domain.name}
+          token={domain.token}
           modules={domain.modules}
           validated={domain.validated}
         />

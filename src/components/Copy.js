@@ -1,4 +1,4 @@
-import { Tooltip } from "@mui/material";
+import { Tooltip, Typography } from "@mui/material";
 import copy from "clipboard-copy";
 import React, { useState } from "react";
 
@@ -6,7 +6,7 @@ const Copy = (props) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const onCopy = (content) => {
-    copy(content);
+    copy(props.data);
     setShowTooltip(true);
   };
 
@@ -15,17 +15,22 @@ const Copy = (props) => {
   };
 
   return (
-    <Tooltip
-      open={showTooltip}
-      title={"Copied to clipboard!"}
-      leaveDelay={1500}
-      onClose={handleOnTooltipClose}
-      {...(props.TooltipProps || {})}
-      onClick={onCopy}
-      data={props.data}
-    >
-      {props.children}
-    </Tooltip>
+    <div>
+      <Tooltip
+        open={showTooltip}
+        title={"Copied to clipboard!"}
+        leaveDelay={1500}
+        onClose={handleOnTooltipClose}
+        {...(props.TooltipProps || {})}
+        onClick={onCopy}
+        data={props.data}
+      >
+        {props.children}
+      </Tooltip>
+      {!props.caption ? null : (
+        <Typography variant="caption">Click to Copy</Typography>
+      )}
+    </div>
   );
 };
 

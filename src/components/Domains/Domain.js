@@ -69,8 +69,10 @@ const Domain = (props) => {
       </Grid>
 
       <ValidateDomain
+        title={`${props.name} is not yet validated`}
         open={validateOpen}
         name={props.name}
+        token={props.token}
         validated={props.validated}
         handleClose={handleValidateClose}
         handleValidate={handleValidateDomain}

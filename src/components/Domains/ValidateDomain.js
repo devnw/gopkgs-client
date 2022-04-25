@@ -6,12 +6,14 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Typography,
+  TextField,
 } from "@mui/material";
 
-import DomainVerificationIcon from "@mui/icons-material/DomainVerification";
+import Copy from "../Copy";
 
 const ValidateDomain = (props) => {
-  const title = "Domain Verification Status";
+  const title = props.title || "Domain Verification Status";
 
   const handleClose = () => {
     props.handleClose();
@@ -46,19 +48,36 @@ const ValidateDomain = (props) => {
           <DialogContentText>{`${props.name} is verified.`}</DialogContentText>
         ) : (
           <DialogContentText>
-            {`${props.name} is not yet validated`}
+            <Typography>
+              Add TXT DNS Record to verify domain ownership.
+            </Typography>
+            <Copy caption={true} data={props.token}>
+              <TextField
+                id="domain-verification-token"
+                label="TXT Record"
+                fullWidth
+                fullHeight
+                defaultValue={props.token}
+                sx={{
+                  marginTop: "30px",
+                }}
+                InputProps={{
+                  readOnly: true,
+                  multiline: true,
+                }}
+              />
+            </Copy>
           </DialogContentText>
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-
         {props.validated ? null : (
           <div>
-            <Button onClick={requestToken}>Request New Token</Button>
-            <Button onClick={reVerify}>Attempt Verify</Button>
+            <Button onClick={requestToken}>New Token</Button>
+            <Button onClick={reVerify}>Verify</Button>
           </div>
         )}
+        <Button onClick={handleClose}>Cancel</Button>
       </DialogActions>
     </Dialog>
   );

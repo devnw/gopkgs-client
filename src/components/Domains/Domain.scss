@@ -7,10 +7,10 @@
 
 .verified {
   @extend .roundIconBorder;
-  color: green;
+  color: darkgreen;
 }
 
 .unverified {
   @extend .roundIconBorder;
-  color: red;
+  color: darkred;
 }

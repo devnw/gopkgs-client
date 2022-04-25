@@ -3,6 +3,8 @@ const doms = [
     id: 8,
     name: "go.benjiv.com",
     validated: true,
+    token:
+      "gopkgs_domain_token=uDay4ctb+Q7oGshNvjO1GqjlgDzyo/MjGwJvte8tcaDxorEZ1buauNIMd0iOZpGzv5nwd9c6Bnl3MVECtkYcSw==",
     modules: [
       {
         docs: "https://benjiv.com/",
@@ -22,6 +24,8 @@ const doms = [
     id: 9,
     name: "go.atomizer.io",
     validated: true,
+    token:
+      "gopkgs_domain_token=uDay4ctb+Q7oGshNvjO1GqjlgDzyo/MjGwJvte8tcaDxorEZ1buauNIMd0iOZpGzv5nwd9c6Bnl3MVECtkYcSw==",
     modules: [
       {
         docs: "https://atomizer.io/docs",
@@ -41,6 +45,8 @@ const doms = [
     id: 10,
     name: "go.devnw.com",
     validated: true,
+    token:
+      "gopkgs_domain_token=uDay4ctb+Q7oGshNvjO1GqjlgDzyo/MjGwJvte8tcaDxorEZ1buauNIMd0iOZpGzv5nwd9c6Bnl3MVECtkYcSw==",
     modules: [
       {
         docs: "https://devnw.com/alog/docs",
@@ -61,6 +67,8 @@ const doms = [
     name: "example.com",
     description: "This is an example domain.",
     validated: true,
+    token:
+      "gopkgs_domain_token=uDay4ctb+Q7oGshNvjO1GqjlgDzyo/MjGwJvte8tcaDxorEZ1buauNIMd0iOZpGzv5nwd9c6Bnl3MVECtkYcSw==",
     modules: [
       {
         id: 1,
@@ -100,6 +108,8 @@ const doms = [
     id: 2,
     name: "example.org",
     description: "This is an example domain.",
+    token:
+      "gopkgs_domain_token=uDay4ctb+Q7oGshNvjO1GqjlgDzyo/MjGwJvte8tcaDxorEZ1buauNIMd0iOZpGzv5nwd9c6Bnl3MVECtkYcSw==",
     modules: [
       {
         id: 1,
@@ -123,6 +133,8 @@ const doms = [
     id: 2,
     name: "example.net",
     description: "This is an example domain.",
+    token:
+      "gopkgs_domain_token=uDay4ctb+Q7oGshNvjO1GqjlgDzyo/MjGwJvte8tcaDxorEZ1buauNIMd0iOZpGzv5nwd9c6Bnl3MVECtkYcSw==",
     modules: [
       {
         id: 1,
@@ -146,6 +158,8 @@ const doms = [
     id: 3,
     name: "example.info",
     description: "This is an example domain.",
+    token:
+      "gopkgs_domain_token=uDay4ctb+Q7oGshNvjO1GqjlgDzyo/MjGwJvte8tcaDxorEZ1buauNIMd0iOZpGzv5nwd9c6Bnl3MVECtkYcSw==",
     validated: true,
     modules: [
       {
