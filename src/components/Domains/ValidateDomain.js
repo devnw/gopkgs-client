@@ -8,6 +8,7 @@ import {
   DialogTitle,
   Typography,
   TextField,
+  Grid,
 } from "@mui/material";
 
 import Copy from "../Copy";
@@ -71,13 +72,21 @@ const ValidateDomain = (props) => {
         )}
       </DialogContent>
       <DialogActions>
-        {props.validated ? null : (
-          <div>
-            <Button onClick={requestToken}>New Token</Button>
-            <Button onClick={reVerify}>Verify</Button>
-          </div>
+        {props.validated ? (
+          <Button onClick={handleClose}>Cancel</Button>
+        ) : (
+          <Grid container spacing={2} alignItems="center" justify="center">
+            <Grid item xs={12} md={7}>
+              <Button onClick={requestToken}>New Token</Button>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <Button onClick={reVerify}>Verify</Button>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <Button onClick={handleClose}>Cancel</Button>
+            </Grid>
+          </Grid>
         )}
-        <Button onClick={handleClose}>Cancel</Button>
       </DialogActions>
     </Dialog>
   );
