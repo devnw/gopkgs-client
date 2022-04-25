@@ -18,7 +18,6 @@ const AddModule = (props) => {
   const [name, setName] = useState("");
   const [type, setType] = useState(types[0]);
   const [repo, setRepo] = useState("");
-  // const [website, setWebsite] = useState("");
   const [docs, setDocs] = useState("");
 
   const handleDomainChange = (event) => {
@@ -96,7 +95,9 @@ const AddModule = (props) => {
                     key={domain.name}
                     value={domain}
                   >
-                    {domain.name}
+                    {domain.validated
+                      ? domain.name
+                      : `${domain.name} (unvalidated)`}
                   </MenuItem>
                 ))}
               </Select>

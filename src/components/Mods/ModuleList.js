@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  Grid,
+  IconButton,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -45,26 +45,9 @@ const ModuleList = (props) => {
               marginTop: "10px",
             }}
           >
-            {domain.validated ? (
-              <Typography variant="h2">{domain.name}</Typography>
-            ) : (
-              <Grid
-                container
-                spacing={{ xs: 2 }}
-                sx={{ padding: "10px" }}
-                alignItems="center"
-                justify="center"
-              >
-                <Grid fullWidth item xs={12} md={9}>
-                  <Typography variant="h2">{domain.name}</Typography>
-                </Grid>
-                <Grid fullWidth item xs={12} md={3}>
-                  <Typography sx={{ textAlign: "right" }} variant="h2">
-                    UNVALIDATED
-                  </Typography>
-                </Grid>
-              </Grid>
-            )}
+            <Typography variant="h2">
+              {domain.validated ? domain.name : `${domain.name} (unvalidated)`}
+            </Typography>
           </AccordionSummary>
           <AccordionDetails
             sx={{
