@@ -1,6 +1,7 @@
-import { Tooltip, Typography } from "@mui/material";
+import { Tooltip, Typography, IconButton } from "@mui/material";
 import copy from "clipboard-copy";
 import React, { useState } from "react";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const Copy = (props) => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -28,7 +29,11 @@ const Copy = (props) => {
         {props.children}
       </Tooltip>
       {!props.caption ? null : (
-        <Typography variant="caption">Click to Copy</Typography>
+        <div style={{ textAlign: "right" }}>
+          <IconButton>
+            <ContentCopyIcon onClick={onCopy}></ContentCopyIcon>
+          </IconButton>
+        </div>
       )}
     </div>
   );
