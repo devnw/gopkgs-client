@@ -12,11 +12,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import Module from "./Module";
 import "./ModuleList.scss";
+import ValidFirstSort from "../../utils/ValidFirstSort";
 
 const ModuleList = (props) => {
   if (props.domains?.length <= 0) {
     return <div />;
   }
+
+  props.domains.sort(ValidFirstSort);
 
   return (
     <div>

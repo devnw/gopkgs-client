@@ -182,21 +182,4 @@ const doms = [
   },
 ];
 
-export default doms.sort((a, b) => {
-  if (a.validated && !b.validated) {
-    return -1;
-  }
-
-  if (!a.validated && b.validated) {
-    return 1;
-  }
-
-  if (a.name < b.name) {
-    return -1;
-  }
-
-  if (a.name > b.name) {
-    return 1;
-  }
-  return 0;
-});
+export default doms;
