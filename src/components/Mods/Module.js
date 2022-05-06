@@ -19,6 +19,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 import EditModule from "./EditModule";
 import DeleteDialog from "../DeleteDialog";
+import "./Modules.scss";
 
 const Module = (props) => {
   const importPath = props.domain + "/" + props.path;
@@ -59,23 +60,20 @@ const Module = (props) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={11}>
+          <Grid container spacing={2}
+            className='module-header'>
+            <Grid item xs={10} md={11}>
               <Copy data={importPath}>
-                <Typography variant="h2" sx={{ fontWeight: "bold" }}>
+                <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                   {importPath}
                 </Typography>
               </Copy>
             </Grid>
-            <Grid item xs={12} md={1}>
+            <Grid item xs={2} md={1}>
               <Typography
-                sx={{
-                  color: "#CB7541",
-                  fontWeight: "bold",
-                }}
-                variant="h2"
+                className='module-type'
               >
-                {props.type.toUpperCase()}
+                {props.type}
               </Typography>
             </Grid>
           </Grid>
@@ -83,13 +81,13 @@ const Module = (props) => {
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
-              <Typography sx={{ fontWeight: "bold" }} variant="h3">
+              <Typography className='module-info' variant="h5">
                 Repository
               </Typography>
             </Grid>
             <Grid item xs={12} md={9}>
               <Link href={props.repo}>
-                <Typography>{props.repo}</Typography>
+                <Typography className='module-info'>{props.repo}</Typography>
               </Link>
             </Grid>
           </Grid>
@@ -97,13 +95,13 @@ const Module = (props) => {
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
-              <Typography sx={{ fontWeight: "bold" }} variant="h3">
+              <Typography className='module-info' variant="h5">
                 Documentation
               </Typography>
             </Grid>
             <Grid item xs={12} md={9}>
               <Link href={props.docs}>
-                <Typography>{props.docs}</Typography>
+                <Typography className='module-info'>{props.docs}</Typography>
               </Link>
             </Grid>
           </Grid>

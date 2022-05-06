@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import { Container, Typography } from "@mui/material";
 import AddDomain from "../../components/Domains/AddDomain";
 import DomainsList from "../../components/Domains/DomainsList";
-
 import { useAuth0 } from "@auth0/auth0-react";
-
 import doms from "../../testdata";
 
 const Domains = (props) => {

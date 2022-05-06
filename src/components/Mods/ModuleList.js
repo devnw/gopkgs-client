@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import Module from "./Module";
-import "./ModuleList.scss";
+import "./Modules.scss";
 import ValidFirstSort from "../../utils/ValidFirstSort";
 
 const ModuleList = (props) => {
@@ -26,35 +26,21 @@ const ModuleList = (props) => {
       {props.domains?.map((domain) => (
         <Accordion
           key={domain.name}
-          sx={{
-            padding: "10px",
-            bgcolor: "#185A7D",
-            color: "#ffffff",
-            marginTop: "10px",
-          }}
+          className='accordion'
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon sx={{ color: "#ffffff" }} />}
+            expandIcon={<ExpandMoreIcon sx={{ color: "#0E2E3F" }} />}
             aria-controls="panel1a-content"
             disabled={!domain.validated}
             id="panel1a-header"
-            sx={{
-              padding: "10px",
-              bgcolor: "#185A7D",
-              color: "#ffffff",
-              marginTop: "10px",
-            }}
+            className='accordion-summary'
           >
-            <Typography variant="h2">
+            <Typography variant="hh32">
               {domain.validated ? domain.name : `${domain.name} (unvalidated)`}
             </Typography>
           </AccordionSummary>
           <AccordionDetails
-            sx={{
-              padding: "10px",
-              color: "#ffffff",
-              marginTop: "10px",
-            }}
+            className='accordion-details'
           >
             {domain.modules?.map((module) => (
               <Module

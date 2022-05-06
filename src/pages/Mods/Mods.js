@@ -6,6 +6,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ModuleList from "../../components/Mods/ModuleList";
 import AddModule from "../../components/Mods/AddModule";
 
+import "./Mods.scss";
+
 import doms from "../../testdata";
 
 const Mods = (props) => {
@@ -18,10 +20,11 @@ const Mods = (props) => {
 
   const updateDomain = (domain) => {
     setDomains(
-      domains.map((d) => {
+      domains.map((d, idx) => {
         if (d.name === domain.name) {
           return domain;
         }
+        d.key = idx;
         return d;
       })
     );
@@ -30,7 +33,7 @@ const Mods = (props) => {
   return (
     <Container sx={{ padding: "10px" }}>
       <AddModule domains={domains} updateDomain={updateDomain} />
-      <Typography variant="h1" component="div" gutterBottom>
+      <Typography className='mod-page-heading' component="div" gutterBottom>
         Your Modules
       </Typography>
       <ModuleList domains={domains} />

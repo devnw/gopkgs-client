@@ -73,7 +73,7 @@ const AddModule = (props) => {
         <Typography variant="h2">Add Module</Typography>
         <Grid
           container
-          spacing={{ xs: 2 }}
+          spacing={{ xs: 1, sm: 2}}
           sx={{ padding: "10px" }}
           alignItems="center"
           justify="center"
