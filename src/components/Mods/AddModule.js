@@ -73,7 +73,7 @@ const AddModule = (props) => {
         <Typography variant="h2">Add Module</Typography>
         <Grid
           container
-          spacing={{ xs: 1, sm: 2}}
+          spacing={{ xs: 1, sm: 1}}
           sx={{ padding: "10px" }}
           alignItems="center"
           justify="center"
@@ -103,7 +103,7 @@ const AddModule = (props) => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={9} s={9} md={5}>
+          <Grid item xs={6} s={8} md={5}>
             <TextField
               required
               fullWidth
@@ -113,10 +113,11 @@ const AddModule = (props) => {
               onChange={handleModuleChange}
             />
           </Grid>
-          <Grid item xs={2} s={3} md={1}>
+          <Grid item xs={6} s={4} md={1}>
             <Select
               labelId="demo-select-small"
               id="demo-select-small"
+              fullWidth
               value={type}
               onChange={handleVCSChange}
             >

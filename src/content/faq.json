@@ -1,0 +1,36 @@
+[{
+  "heading": "Cost",
+  "questions": [{
+      "question": "Is this service free?",
+      "answer": "Yes, it is free.",
+      "additionalInfo": ""
+    },
+    {
+      "question": "Even for custom domains?",
+      "answer": "Yup, you can use your own domain name for free.",
+      "additionalInfo": ""
+    },
+    {
+      "question": "Even for private repositories?",
+      "answer": "Yes, you may use private repositories for free. Private repositories require additional local configuration and setup. <a href='/docs/'>Read more</a>.",
+      "additionalInfo": ""
+    },
+    {
+      "question": "Why would you do that?",
+      "answer": "For reasons other than being a benevolent OSS Contributor? I don't know.",
+      "additionalInfo": ""
+    },
+    {
+      "question": "How do you cover the cost?",
+      "answer": "Currently the service is hosted on GCP free tier and the associated cost is minimal. As the service expands it may become more expensive for me to cover the cost. If you would like to donate to the project you can sponsor the <a href='https://github.com/devnw' target='_blank' rel='noopener noreferrer'>Developer Network Github organization</a> through <a href='https://github.com/sponsors/devnw' target='_blank' rel='noopener noreferrer'>Github Sponsors</a>.",
+      "additionalInfo": ""
+    }
+  ]
+}, {
+  "heading": "How Does It Work?",
+  "questions": [{
+    "question": "Vanity Import Paths",
+    "answer": "Vanity Import paths were added to the go get command to allow for pointing to the version control repository of a package rather than using an import path that <b>was</b> the version control repository.",
+    "additionalInfo": ""
+  }]
+}]
