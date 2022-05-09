@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Button,
   Dialog,
@@ -22,11 +22,11 @@ const ValidateDomain = (props) => {
   };
 
   const reVerify = () => {
-    console.log("Re-verifying domain:", props.name);
+    console.log("Re-verifying domain:", props.domain);
   };
 
   const requestToken = () => {
-    console.log("Requesting New Token:", props.name);
+    console.log("Requesting New Token:", props.domain);
   };
 
   let statusColor = "darkred";
@@ -47,7 +47,7 @@ const ValidateDomain = (props) => {
       </DialogTitle>
       <DialogContent>
         {props.validated ? (
-          <DialogContentText>{`${props.name} is verified.`}</DialogContentText>
+          <DialogContentText>{`${props.domain} is verified.`}</DialogContentText>
         ) : (
           <DialogContentText>
             <Typography>

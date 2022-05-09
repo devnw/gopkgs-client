@@ -20,7 +20,7 @@ import "./NavBar.scss";
 import LoginButton from "../Auth0/LoginButton";
 
 const NavBar = (props) => {
-  const { user, isAuthenticated, isLoading, logout } = useAuth0();
+  const { user, isAuthenticated, logout } = useAuth0();
 
   // const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [anchorElNav, setanchorElNav] = useState(null);

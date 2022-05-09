@@ -1,23 +1,11 @@
 import React, { useState } from "react";
-import {
-  Card,
-  Box,
-  Button,
-  TextField,
-  Grid,
-  Typography,
-  InputLabel,
-  FormControl,
-  Select,
-  MenuItem,
-} from "@mui/material";
+import { TextField, Grid, Typography, Select, MenuItem } from "@mui/material";
 
 const EditModule = (props) => {
   const importPath = props.domain + "/" + props.path;
   const types = ["git", "mod", "svn", "hg", "fossil", "bzr"];
   const [type, setType] = useState(props.type);
   const [repo, setRepo] = useState(props.repo);
-  // const [website, setWebsite] = useState("");
   const [docs, setDocs] = useState(props.docs);
 
   const handleVCSChange = (event) => {
@@ -28,31 +16,27 @@ const EditModule = (props) => {
     setRepo(event.target.value);
   };
 
-  // const handleWebsiteChange = (event) => {
-  //   setWebsite(event.target.value);
-  // };
-
   const handleDocsChange = (event) => {
     setDocs(event.target.value);
   };
 
-  const handleEditDomain = (event) => {
-    event.preventDefault();
+  // const handleEditDomain = (event) => {
+  //   event.preventDefault();
 
-    // props.updateDomain({
-    //   ...props.domain,
-    //   modules: [
-    //     {
-    //       id: Math.random(),
-    //       path: name,
-    //       type: type,
-    //       repo: repo,
-    //       docs: docs,
-    //     },
-    //     ...props.domain.modules,
-    //   ],
-    // });
-  };
+  //   // props.updateDomain({
+  //   //   ...props.domain,
+  //   //   modules: [
+  //   //     {
+  //   //       id: Math.random(),
+  //   //       path: name,
+  //   //       type: type,
+  //   //       repo: repo,
+  //   //       docs: docs,
+  //   //     },
+  //   //     ...props.domain.modules,
+  //   //   ],
+  //   // });
+  // };
 
   return (
     <Grid

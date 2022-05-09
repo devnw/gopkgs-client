@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import {
   ThemeProvider,
@@ -21,6 +22,46 @@ import Footer from "./components/Footer/Footer";
 import "./App.scss";
 
 const App = (props) => {
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const [domains, setDomains] = useState();
+
+  useEffect(() => {
+    const callApi = async () => {
+      try {
+        const accessToken = await getAccessTokenSilently({
+          audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
+          scope: "read:current_user",
+        });
+
+        console.log(accessToken);
+
+        const response = await fetch(
+          `${process.env.REACT_APP_API_SERVER_URL}/domains`,
+          {
+            method: "GET",
+            headers: new Headers({
+              Authorization: `Bearer ${accessToken}`,
+            }),
+          }
+        );
+
+        const responseData = await response.json();
+
+        console.log(responseData);
+
+        setDomains(responseData);
+      } catch (error) {
+        console.log(error);
+        // setState({
+        //   ...state,
+        //   error: error.error,
+        // });
+      }
+    };
+
+    callApi();
+  }, [setDomains, isAuthenticated, getAccessTokenSilently]);
+
   const pages = [
     {
       path: "/",
@@ -59,9 +100,9 @@ const App = (props) => {
   const PRIMARY = "#0E2E3F";
   const SECONDARY = "#185A7D";
   const TERTIARY = "#4197CB";
-  const DARK = "#2b2b2b";
+  // const DARK = "#2b2b2b";
   const LIGHT = "#687C87";
-  const BACK = "#A5B1B7";
+  // const BACK = "#A5B1B7";
 
   let theme = createTheme({
     palette: {
@@ -124,15 +165,16 @@ const App = (props) => {
                 key={page.path}
                 path={page.path}
                 exact={page.exact}
-                element={page.component()}
+                element={page.component({
+                  domains: domains,
+                  setDomains: setDomains,
+                })}
               />
             ))}
           </Routes>
         </Router>
       </div>
-      <Footer
-        logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"}
-      />
+      <Footer logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"} />
     </ThemeProvider>
   );
 };

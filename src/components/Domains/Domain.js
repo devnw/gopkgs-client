@@ -37,7 +37,7 @@ const Domain = (props) => {
     >
       <Grid container spacing={2} alignItems="center" justify="center">
         <Grid item xs={8} md={10}>
-          <h2>{props.name}</h2>
+          <h2>{props.domain}</h2>
           <p>{props.description}</p>
           {props.modules?.length > 0 ? (
             <h3>Registered Modules: {props.modules.length}</h3>
@@ -69,9 +69,9 @@ const Domain = (props) => {
       </Grid>
 
       <ValidateDomain
-        title={props.validated ? null : `${props.name} is not yet validated`}
+        title={props.validated ? null : `${props.domain} is not yet validated`}
         open={validateOpen}
-        name={props.name}
+        domain={props.domain}
         token={props.token}
         validated={props.validated}
         handleClose={handleValidateClose}

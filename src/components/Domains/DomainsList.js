@@ -1,7 +1,5 @@
 import React from "react";
 
-import Card from "@mui/material/Card";
-
 import Domain from "./Domain";
 import InvalidFirstSort from "../../utils/InvalidFirstSort";
 
@@ -18,10 +16,11 @@ const DomainList = (props) => {
         <Domain
           key={domain.id}
           id={domain.id}
-          name={domain.name}
+          domain={domain.domain}
           token={domain.token}
           modules={domain.modules}
           validated={domain.validated}
+          validate_by={domain.validate_by}
         />
       ))}
     </div>

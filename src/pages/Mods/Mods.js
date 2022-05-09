@@ -8,20 +8,20 @@ import AddModule from "../../components/Mods/AddModule";
 
 import "./Mods.scss";
 
-import doms from "../../testdata";
-
 const Mods = (props) => {
-  const [domains, setDomains] = React.useState(doms);
-
   const { isAuthenticated } = useAuth0();
   if (!isAuthenticated) {
     return <div />;
   }
 
   const updateDomain = (domain) => {
-    setDomains(
-      domains.map((d, idx) => {
-        if (d.name === domain.name) {
+    if (!props.domains) {
+      return;
+    }
+
+    props.setDomains(
+      props.domains.map((d, idx) => {
+        if (d.domain === domain.domain) {
           return domain;
         }
         d.key = idx;
@@ -32,11 +32,11 @@ const Mods = (props) => {
 
   return (
     <Container sx={{ padding: "10px" }}>
-      <AddModule domains={domains} updateDomain={updateDomain} />
-      <Typography className='mod-page-heading' component="div" gutterBottom>
+      <AddModule domains={props.domains} updateDomain={updateDomain} />
+      <Typography className="mod-page-heading" component="div" gutterBottom>
         Your Modules
       </Typography>
-      <ModuleList domains={domains} />
+      <ModuleList domains={props.domains} />
     </Container>
   );
 };

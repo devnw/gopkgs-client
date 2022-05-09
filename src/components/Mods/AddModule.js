@@ -73,7 +73,7 @@ const AddModule = (props) => {
         <Typography variant="h2">Add Module</Typography>
         <Grid
           container
-          spacing={{ xs: 1, sm: 1}}
+          spacing={{ xs: 1, sm: 1 }}
           sx={{ padding: "10px" }}
           alignItems="center"
           justify="center"
@@ -89,17 +89,19 @@ const AddModule = (props) => {
                 label="Domain"
                 onChange={handleDomainChange}
               >
-                {props.domains.map((domain) => (
-                  <MenuItem
-                    disabled={!domain.validated}
-                    key={domain.name}
-                    value={domain}
-                  >
-                    {domain.validated
-                      ? domain.name
-                      : `${domain.name} (unvalidated)`}
-                  </MenuItem>
-                ))}
+                {props.domains
+                  ? props.domains.map((domain) => (
+                      <MenuItem
+                        disabled={!domain.validated}
+                        key={domain.domain}
+                        value={domain}
+                      >
+                        {domain.validated
+                          ? domain.domain
+                          : `${domain.domain} (unvalidated)`}
+                      </MenuItem>
+                    ))
+                  : null}
               </Select>
             </FormControl>
           </Grid>

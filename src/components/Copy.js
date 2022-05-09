@@ -1,4 +1,4 @@
-import { Tooltip, Typography, IconButton } from "@mui/material";
+import { Tooltip, IconButton } from "@mui/material";
 import copy from "clipboard-copy";
 import React, { useState } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";

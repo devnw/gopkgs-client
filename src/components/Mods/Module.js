@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   Grid,
@@ -60,8 +60,7 @@ const Module = (props) => {
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Grid container spacing={2}
-            className='module-header'>
+          <Grid container spacing={2} className="module-header">
             <Grid item xs={10} md={11}>
               <Copy data={importPath}>
                 <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -70,24 +69,20 @@ const Module = (props) => {
               </Copy>
             </Grid>
             <Grid item xs={2} md={1}>
-              <Typography
-                className='module-type'
-              >
-                {props.type}
-              </Typography>
+              <Typography className="module-type">{props.type}</Typography>
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
-              <Typography className='module-info' variant="h5">
+              <Typography className="module-info" variant="h5">
                 Repository
               </Typography>
             </Grid>
             <Grid item xs={12} md={9}>
               <Link href={props.repo}>
-                <Typography className='module-info'>{props.repo}</Typography>
+                <Typography className="module-info">{props.repo}</Typography>
               </Link>
             </Grid>
           </Grid>
@@ -95,13 +90,13 @@ const Module = (props) => {
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
-              <Typography className='module-info' variant="h5">
+              <Typography className="module-info" variant="h5">
                 Documentation
               </Typography>
             </Grid>
             <Grid item xs={12} md={9}>
               <Link href={props.docs}>
-                <Typography className='module-info'>{props.docs}</Typography>
+                <Typography className="module-info">{props.docs}</Typography>
               </Link>
             </Grid>
           </Grid>

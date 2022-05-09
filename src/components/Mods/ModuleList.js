@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  IconButton,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
 } from "@mui/material";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -19,34 +17,31 @@ const ModuleList = (props) => {
     return <div />;
   }
 
-  props.domains.sort(ValidFirstSort);
+  props.domains?.sort(ValidFirstSort);
 
   return (
     <div>
       {props.domains?.map((domain) => (
-        <Accordion
-          key={domain.name}
-          className='accordion'
-        >
+        <Accordion key={domain.domain} className="accordion">
           <AccordionSummary
             expandIcon={<ExpandMoreIcon sx={{ color: "#0E2E3F" }} />}
             aria-controls="panel1a-content"
             disabled={!domain.validated}
             id="panel1a-header"
-            className='accordion-summary'
+            className="accordion-summary"
           >
             <Typography variant="hh32">
-              {domain.validated ? domain.name : `${domain.name} (unvalidated)`}
+              {domain.validated
+                ? domain.domain
+                : `${domain.domain} (unvalidated)`}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails
-            className='accordion-details'
-          >
+          <AccordionDetails className="accordion-details">
             {domain.modules?.map((module) => (
               <Module
                 className="moduleListItem"
-                key={module.path}
-                domain={domain.name}
+                key={domain.domain + module.path}
+                domain={domain.domain}
                 path={module.path}
                 type={module.type}
                 repo={module.repo}

@@ -10,7 +10,7 @@ const Markdown = (props) => {
       .then((text) => {
         setMd(text);
       });
-  }, []);
+  }, [props.md]);
 
   return <ReactMarkdown>{md}</ReactMarkdown>;
 };
