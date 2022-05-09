@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Snackbar, Alert } from "@mui/material";
 
 import {
   ThemeProvider,
@@ -23,12 +24,37 @@ import { getDomains } from "./api/domains";
 
 import "./App.scss";
 
+const defaultAlert = {
+  open: false,
+  message: "",
+  severity: "",
+};
+
 const App = (props) => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [domains, setDomains] = useState();
+  const [alert, setAlert] = React.useState(defaultAlert);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setAlert(defaultAlert);
+  };
 
   useEffect(() => {
-    getDomains(getAccessTokenSilently, setDomains);
+    getDomains(getAccessTokenSilently)
+      .then((domains) => {
+        setDomains(domains);
+      })
+      .catch((err) => {
+        setAlert({
+          open: true,
+          message: err.message,
+          severity: "error",
+        });
+      });
   }, [setDomains, isAuthenticated, getAccessTokenSilently]);
 
   const pages = [
@@ -137,6 +163,7 @@ const App = (props) => {
                 element={page.component({
                   domains: domains,
                   setDomains: setDomains,
+                  alert: setAlert,
                 })}
               />
             ))}
@@ -144,6 +171,15 @@ const App = (props) => {
         </Router>
       </div>
       <Footer logo={process.env.PUBLIC_URL + "/images/logos/logo-text.webp"} />
+      <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity={alert.severity}
+          sx={{ width: "100%" }}
+        >
+          {alert.message}
+        </Alert>
+      </Snackbar>
     </ThemeProvider>
   );
 };
