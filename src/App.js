@@ -33,8 +33,6 @@ const App = (props) => {
           scope: "read:current_user",
         });
 
-        console.log(accessToken);
-
         const response = await fetch(
           `${process.env.REACT_APP_API_SERVER_URL}/domains`,
           {
@@ -45,11 +43,7 @@ const App = (props) => {
           }
         );
 
-        const responseData = await response.json();
-
-        console.log(responseData);
-
-        setDomains(responseData);
+        setDomains(await response.json());
       } catch (error) {
         console.log(error);
         // setState({
