@@ -19,6 +19,8 @@ import Docs from "./pages/Docs/Docs";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
+import { getDomains } from "./api/domains";
+
 import "./App.scss";
 
 const App = (props) => {
@@ -26,34 +28,7 @@ const App = (props) => {
   const [domains, setDomains] = useState();
 
   useEffect(() => {
-    const callApi = async () => {
-      try {
-        const accessToken = await getAccessTokenSilently({
-          audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
-          scope: "read:current_user",
-        });
-
-        const response = await fetch(
-          `${process.env.REACT_APP_API_SERVER_URL}/domains`,
-          {
-            method: "GET",
-            headers: new Headers({
-              Authorization: `Bearer ${accessToken}`,
-            }),
-          }
-        );
-
-        setDomains(await response.json());
-      } catch (error) {
-        console.log(error);
-        // setState({
-        //   ...state,
-        //   error: error.error,
-        // });
-      }
-    };
-
-    callApi();
+    getDomains(getAccessTokenSilently, setDomains);
   }, [setDomains, isAuthenticated, getAccessTokenSilently]);
 
   const pages = [

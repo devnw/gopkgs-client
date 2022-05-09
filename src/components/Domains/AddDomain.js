@@ -19,10 +19,7 @@ const AddDomain = (props) => {
       return;
     }
 
-    props.add({
-      id: Math.random(),
-      name: domain,
-    });
+    props.add(domain);
   };
 
   return (
