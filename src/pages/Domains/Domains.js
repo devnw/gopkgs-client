@@ -52,14 +52,14 @@ const Domains = (props) => {
 
   return (
     <Container sx={{ padding: "10px" }}>
-      <AddDomain add={addDomain} />
+      <AddDomain add={addDomain} alert={props.alert} />
 
       {props.domains?.length > 0 ? (
         <div>
           <Typography variant="h1" component="div" gutterBottom>
             Your Domains
           </Typography>
-          <DomainsList domains={props.domains} />
+          <DomainsList alert={props.alert} domains={props.domains} />
         </div>
       ) : null}
     </Container>

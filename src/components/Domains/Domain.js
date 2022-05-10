@@ -69,6 +69,8 @@ const Domain = (props) => {
       </Grid>
 
       <ValidateDomain
+        alert={props.alert}
+        id={props.id}
         title={props.validated ? null : `${props.domain} is not yet validated`}
         open={validateOpen}
         domain={props.domain}

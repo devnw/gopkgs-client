@@ -32,11 +32,15 @@ const Mods = (props) => {
 
   return (
     <Container sx={{ padding: "10px" }}>
-      <AddModule domains={props.domains} updateDomain={updateDomain} />
+      <AddModule
+        alert={props.alert}
+        domains={props.domains}
+        updateDomain={updateDomain}
+      />
       <Typography className="mod-page-heading" component="div" gutterBottom>
         Your Modules
       </Typography>
-      <ModuleList domains={props.domains} />
+      <ModuleList alert={props.alert} domains={props.domains} />
     </Container>
   );
 };

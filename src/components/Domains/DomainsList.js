@@ -14,6 +14,7 @@ const DomainList = (props) => {
     <div>
       {props.domains?.map((domain) => (
         <Domain
+          alert={props.alert}
           key={domain.id}
           id={domain.id}
           domain={domain.domain}
