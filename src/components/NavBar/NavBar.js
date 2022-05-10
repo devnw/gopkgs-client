@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+} from "@mui/material";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -105,6 +109,21 @@ const NavBar = (props) => {
                   </MenuItem>
                 )
               )}
+              <MenuItem>
+                <a
+                  href="https://github.com/sponsors/devnw"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Typography
+                    textAlign="center"
+                    sx={{ textTransform: "capitalize" }}
+                  >
+                    <FavoriteIcon />
+                    Sponsor
+                  </Typography>
+                </a>
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -131,6 +150,31 @@ const NavBar = (props) => {
                 </Button>
               )
             )}
+            <Button
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                "&:hover": {
+                  background: "#185A7D",
+                },
+                textAlign: "center",
+              }}
+            >
+              <a
+                href="https://github.com/sponsors/devnw"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Typography
+                  textAlign="center"
+                  sx={{ textTransform: "capitalize" }}
+                >
+                  <FavoriteIcon />
+                  Sponsor
+                </Typography>
+              </a>
+            </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             {!isAuthenticated ? (
