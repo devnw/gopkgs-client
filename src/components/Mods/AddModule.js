@@ -44,22 +44,17 @@ const AddModule = (props) => {
     setDocs(event.target.value);
   };
 
-  const handleAddDomain = (event) => {
+  const handleAddModule = (event) => {
     event.preventDefault();
 
-    props.updateDomain({
-      ...domain,
-      modules: [
-        {
-          id: Math.random(),
-          path: name,
-          type: type,
-          repo: repo,
-          docs: docs,
-        },
-        ...domain.modules,
-      ],
-    });
+    const mod = {
+      path: name,
+      type: type,
+      repo: repo,
+      docs: docs,
+    };
+
+    props.addModule(domain, mod);
   };
 
   return (
@@ -93,7 +88,7 @@ const AddModule = (props) => {
                   ? props.domains.map((domain) => (
                       <MenuItem
                         disabled={!domain.validated}
-                        key={domain.domain}
+                        key={domain.id}
                         value={domain}
                       >
                         {domain.validated
@@ -152,7 +147,7 @@ const AddModule = (props) => {
             />
           </Grid>
           <Grid item fullWidth xs={12} sx={{ textAlign: "right" }}>
-            <Button variant="contained" type="submit" onClick={handleAddDomain}>
+            <Button variant="contained" type="submit" onClick={handleAddModule}>
               Add
             </Button>
           </Grid>

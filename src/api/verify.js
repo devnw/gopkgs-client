@@ -1,5 +1,5 @@
-const getVerify = async (getAccessTokenSilently, id) => {
-  const accessToken = await getAccessTokenSilently({
+const getVerify = async (getAccessToken, id) => {
+  const accessToken = await getAccessToken({
     audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
     scope: "read:current_user",
   });

@@ -1,5 +1,5 @@
-const postModules = async (getAccessTokenSilently, domainID, modules) => {
-  const accessToken = await getAccessTokenSilently({
+const postModules = async (getAccessToken, domainID, modules) => {
+  const accessToken = await getAccessToken({
     audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
     scope: "read:current_user",
   });
@@ -18,8 +18,8 @@ const postModules = async (getAccessTokenSilently, domainID, modules) => {
   return await response.json();
 };
 
-const delModule = async (getAccessTokenSilently, domainID, mod) => {
-  const accessToken = await getAccessTokenSilently({
+const delModule = async (getAccessToken, domainID, mod) => {
+  const accessToken = await getAccessToken({
     audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
     scope: "read:current_user",
   });

@@ -1,5 +1,5 @@
-const getDomains = async (getAccessTokenSilently, setDomains) => {
-  const accessToken = await getAccessTokenSilently({
+const getDomains = async (getAccessToken, setDomains) => {
+  const accessToken = await getAccessToken({
     audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
     scope: "read:current_user",
   });
@@ -17,8 +17,8 @@ const getDomains = async (getAccessTokenSilently, setDomains) => {
   return await response.json();
 };
 
-const putDomain = async (getAccessTokenSilently, domain) => {
-  const accessToken = await getAccessTokenSilently({
+const putDomain = async (getAccessToken, domain) => {
+  const accessToken = await getAccessToken({
     audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
     scope: "read:current_user",
   });
@@ -37,8 +37,8 @@ const putDomain = async (getAccessTokenSilently, domain) => {
   return await response.json();
 };
 
-const delDomain = async (getAccessTokenSilently, id) => {
-  const accessToken = await getAccessTokenSilently({
+const delDomain = async (getAccessToken, id) => {
+  const accessToken = await getAccessToken({
     audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
     scope: "read:current_user",
   });
