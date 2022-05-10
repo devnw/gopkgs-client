@@ -44,7 +44,7 @@ const Domains = (props) => {
       .catch((err) => {
         props.alert({
           open: true,
-          message: err.message,
+          message: `Error adding domain: ${domain}`,
           severity: "error",
         });
       });

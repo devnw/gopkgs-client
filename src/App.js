@@ -51,7 +51,7 @@ const App = (props) => {
       .catch((err) => {
         setAlert({
           open: true,
-          message: err.message,
+          message: `Error getting domains: ${err.message}`,
           severity: "error",
         });
       });
