@@ -14,7 +14,7 @@ const getVerify = async (getAccessTokenSilently, id) => {
     }
   );
 
-  return await response.json();
+  return await response;
 };
 
 export { getVerify };

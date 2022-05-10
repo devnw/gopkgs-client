@@ -15,6 +15,7 @@ import {
 import { useAuth0 } from "@auth0/auth0-react";
 import { getVerify } from "../../api/verify";
 import { getToken } from "../../api/token";
+import { delDomain } from "../../api/domains";
 
 import Copy from "../Copy";
 
@@ -24,6 +25,29 @@ const ValidateDomain = (props) => {
 
   const handleClose = () => {
     props.handleClose();
+  };
+
+  const handleDelete = () => {
+    delDomain(getAccessTokenSilently, props.id)
+      .then((d) => {
+        props.alert({
+          open: true,
+          message: `Domain ${d.domain} deleted successfully`,
+          severity: "success",
+        });
+
+        // TODO: Remove from domain list
+
+        handleClose();
+      })
+      .catch((err) => {
+        console.log(err);
+        props.alert({
+          open: true,
+          message: `Error while deleting domain`,
+          severity: "error",
+        });
+      });
   };
 
   const reVerify = () => {
@@ -111,16 +135,26 @@ const ValidateDomain = (props) => {
       </DialogContent>
       <DialogActions>
         {props.validated ? (
-          <Button onClick={handleClose}>Cancel</Button>
+          <Grid container spacing={2}>
+            <Grid item>
+              <Button onClick={handleDelete}>Delete</Button>
+            </Grid>
+            <Grid item sx={{ textAlign: "right" }}>
+              <Button onClick={handleClose}>Cancel</Button>
+            </Grid>
+          </Grid>
         ) : (
-          <Grid container spacing={2} alignItems="center" justify="center">
-            <Grid item xs={12} md={7}>
+          <Grid container spacing={4}>
+            <Grid item>
               <Button onClick={requestToken}>New Token</Button>
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item>
               <Button onClick={reVerify}>Verify</Button>
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid item>
+              <Button onClick={handleDelete}>Delete</Button>
+            </Grid>
+            <Grid item>
               <Button onClick={handleClose}>Cancel</Button>
             </Grid>
           </Grid>

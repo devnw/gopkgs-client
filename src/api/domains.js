@@ -53,7 +53,7 @@ const delDomain = async (getAccessTokenSilently, id) => {
     }
   );
 
-  return await response.json();
+  return await response;
 };
 
 export { getDomains, putDomain, delDomain };

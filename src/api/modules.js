@@ -34,7 +34,7 @@ const delModule = async (getAccessTokenSilently, domainID, mod) => {
     }
   );
 
-  return await response.json();
+  return await response;
 };
 
 export { postModules, delModule };
