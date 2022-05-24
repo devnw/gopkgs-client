@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Snackbar, Alert } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
 
 import {
   ThemeProvider,
@@ -44,6 +45,10 @@ const App = (props) => {
   };
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      return;
+    }
+
     getDomains(getAccessTokenSilently)
       .then((domains) => {
         setDomains(domains);
@@ -151,6 +156,7 @@ const App = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <div style={{ position: "relative", minHeight: "calc(100vh - 220px)" }}>
         <Router>
           <NavBar className="header" pages={pages} />
