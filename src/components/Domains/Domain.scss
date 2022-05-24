@@ -1,3 +1,34 @@
+.domain-summary{
+  color: #0E2E3F;
+    background-color: #eee;
+    border-left: 15px solid #0E2E3F;
+    border-bottom: 1px solid #0E2E3F;
+    border-right: 1px solid #0E2E3F;
+    border-top: 1px solid #0E2E3F;
+    margin-bottom: 5px;
+    box-shadow: none !important;
+    span {
+      font-family: Calibri, 'Trebuchet MS', sans-serif;
+      text-transform: lowercase;
+    }
+    & :before {
+      top: 0px !important;
+    }
+}
+
+.domain-name-background{
+  background-color: #185A7D;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #eee;
+}
+
+.domain-buttons-background{
+  background-color: #4197CB;
+  padding-right: 10px;
+  color: #eee;
+}
+
 .roundIconBorder {
   border: 2px solid white;
   border-radius: 100%;
