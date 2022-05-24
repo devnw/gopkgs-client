@@ -30,18 +30,17 @@
 }
 
 .roundIconBorder {
-  border: 2px solid white;
   border-radius: 100%;
-  background-color: white;
+  color: white;
   vertical-align: middle;
 }
 
 .verified {
   @extend .roundIconBorder;
-  color: darkgreen;
+  background-color: green;
 }
 
 .unverified {
   @extend .roundIconBorder;
-  color: darkred;
+  background-color: darkred;
 }

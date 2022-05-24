@@ -8,17 +8,13 @@ import {
   Tooltip,
   IconButton,
 } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ReplayIcon from "@mui/icons-material/Replay";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-
-import {
-  faCircleExclamation,
-  faCircleCheck,
-} from "@fortawesome/free-solid-svg-icons";
+import ErrorIcon from "@mui/icons-material/Error";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 
 import ValidateDomain from "./ValidateDomain";
 import "./Domain.scss";
@@ -71,39 +67,37 @@ const Domain = (props) => {
         >
           <Grid item xs={8} md={10}>
             <h2>{props.domain}</h2>
-            <p>{props.description}</p>
-            {props.modules?.length > 0 ? (
-              <h3>Registered Modules: {props.modules.length}</h3>
-            ) : null}
           </Grid>
           <Grid item xs={4} md={2} sx={{ textAlign: "right" }}>
             {!props.validated ? (
-              <Tooltip title={"This domain is not validated yet"}>
-                <IconButton onClick={handleValidateOpen}>
-                  <FontAwesomeIcon
-                    size="4x"
-                    icon={faCircleExclamation}
-                    className="unverified"
-                  />
-                </IconButton>
-              </Tooltip>
+              <IconButton onClick={handleValidateOpen}>
+                <Tooltip title={"This domain is not validated yet"}>
+                  <ErrorIcon fontSize="large" className="unverified" />
+                </Tooltip>
+              </IconButton>
             ) : (
-              <Tooltip title={"This domain has been verified"}>
-                <IconButton onClick={handleValidateOpen}>
-                  <FontAwesomeIcon
-                    size="4x"
-                    icon={faCircleCheck}
-                    className="verified"
-                  />
-                </IconButton>
-              </Tooltip>
+              <IconButton onClick={handleValidateOpen}>
+                <Tooltip title={"This domain has been verified"}>
+                  <DoneAllIcon fontSize="large" className="verified" />
+                </Tooltip>
+              </IconButton>
             )}
           </Grid>
         </Grid>
       </CardActionArea>
       <CardActions>
         <Grid container spacing={2}>
-          <Grid fullWidth item xs={12} sx={{ textAlign: "right" }}>
+          {props.modules?.length > 0 ? (
+            <Grid item xs={4}>
+              Registered Modules: {props.modules.length}
+            </Grid>
+          ) : null}
+          <Grid
+            fullWidth
+            item
+            xs={props.modules?.length > 0 ? 8 : 12}
+            sx={{ textAlign: "right" }}
+          >
             {!props.validated ? (
               <>
                 <IconButton>
