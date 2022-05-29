@@ -3,13 +3,18 @@ import data from "../../content/faq.json";
 import { Container, Typography } from "@mui/material";
 import "./About.scss";
 
+import Ref from "../../components/Ref";
+
 const About = () => {
   const aboutInfo = data.map((ele, idx) => {
     const qa = ele.questions.map((el, ix) => {
       return (
         <div key={ix}>
-          <Typography variant="h3">{el.question}</Typography>
-          <p dangerouslySetInnerHTML={{ __html: el.answer }}></p>{" "}
+          <Ref variant="h3">{el.question}</Ref>
+          <Typography
+            variant="body1"
+            dangerouslySetInnerHTML={{ __html: el.answer }}
+          ></Typography>{" "}
           {/* fyi - this is fine, it's static content */}
         </div>
       );
@@ -17,9 +22,9 @@ const About = () => {
 
     return (
       <div key={idx}>
-        <Typography variant="h2" className="about-heading">
+        <Ref variant="h2" className="about-heading">
           {ele.heading}
-        </Typography>
+        </Ref>
         <hr />
         {qa}
       </div>
@@ -28,15 +33,15 @@ const About = () => {
 
   return (
     <Container sx={{ padding: "10px" }}>
-      <Typography variant="h1">
+      <Ref variant="h1">
         About Custom Domain Imports (aka. Vanity Imports) in Google Go
-      </Typography>
-      <p>
+      </Ref>
+      <Typography variant="body1">
         Go Packages (<code>gopkgs.org</code>) is created to be a FREE service to
         allow Go developers to setup their own custom import paths without
         having to go through the hassle of setting up a custom static site with
         meta tags, hosting, content, etc.
-      </p>
+      </Typography>
 
       <div>{aboutInfo}</div>
     </Container>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import {
   AppBar,
@@ -16,7 +15,6 @@ import {
   Button,
   Tooltip,
   MenuItem,
-  Grid,
 } from "@mui/material";
 
 import { useAuth0 } from "@auth0/auth0-react";
