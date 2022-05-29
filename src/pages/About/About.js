@@ -26,7 +26,6 @@ const About = () => {
         <Ref variant="h2" className="about-heading">
           {ele.heading}
         </Ref>
-        <hr />
         {qa}
       </div>
     );

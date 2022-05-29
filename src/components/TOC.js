@@ -1,7 +1,8 @@
 import React from "react";
-import { ListItemButton, ListItemText, List } from "@mui/material";
+import { ListItemButton, ListItemText, List, Typography } from "@mui/material";
 
 const headers = ["h2", "h3", "h4", "h5", "h6"];
+let headerClass = "";
 
 const RecursiveTOC = (children) => {
   if (typeof children === "string") {
@@ -11,10 +12,6 @@ const RecursiveTOC = (children) => {
   if (!children) {
     return [];
   }
-
-  //   if (children?.length === 0 || !Array.isArray(children)) {
-  //     return [];
-  //   }
 
   let contents = [];
   children.forEach((child) => {
@@ -39,6 +36,10 @@ const RecursiveTOC = (children) => {
       tag = child.type;
     }
 
+    if (tag === "h2") {
+      headerClass = child.props.className;
+    }
+
     const id = encodeURIComponent(
       child.props.children.replace(/ /g, "-").toLowerCase()
     );
@@ -61,20 +62,36 @@ const RecursiveTOC = (children) => {
 
 const TOC = (props) => {
   const contents = RecursiveTOC(props.children);
-
+  let loc = -1;
   return (
     <>
       {props.children.map((child, index) => {
         if (child.type === "h1" || child.props.variant === "h1") {
+          loc = index;
+        } else if (loc !== -1 && index === loc + 1) {
           return (
             <div key={index}>
               {child}
               {contents.length === 0 ? null : (
-                <List className="toc-list">
-                  {contents.map((child, index) => {
-                    return <div key={index}>{child}</div>;
-                  })}
-                </List>
+                <>
+                  <Typography
+                    id="toc"
+                    className={headerClass}
+                    sx={{
+                      marginTop: "10px",
+                    }}
+                    variant="h2"
+                    component="div"
+                    gutterBottom
+                  >
+                    Table Of Contents
+                  </Typography>
+                  <List className="toc-list">
+                    {contents.map((child, index) => {
+                      return <div key={index}>{child}</div>;
+                    })}
+                  </List>
+                </>
               )}
             </div>
           );
