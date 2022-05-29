@@ -33,7 +33,7 @@ const About = () => {
 
   return (
     <Container sx={{ padding: "10px" }}>
-      <TOC>
+      <TOC hasToc>
         <Ref variant="h1">
           About Custom Domain Imports (aka. Vanity Imports) in Google Go
         </Ref>
@@ -43,6 +43,7 @@ const About = () => {
           having to go through the hassle of setting up a custom static site
           with meta tags, hosting, content, etc.
         </Typography>
+        <TOC render />
         <div>{aboutInfo}</div>
       </TOC>
     </Container>

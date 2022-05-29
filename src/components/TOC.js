@@ -61,14 +61,40 @@ const RecursiveTOC = (children) => {
 };
 
 const TOC = (props) => {
+  if (props.render) {
+    return null;
+  }
+
   const contents = RecursiveTOC(props.children);
-  let loc = -1;
   return (
     <>
       {props.children.map((child, index) => {
-        if (child.type === "h1" || child.props.variant === "h1") {
-          loc = index;
-        } else if (loc !== -1 && index === loc + 1) {
+        if (props.hasToc && child.type?.name === "TOC") {
+          return (
+            <>
+              <Typography
+                id="toc"
+                className={headerClass}
+                sx={{
+                  marginTop: "10px",
+                }}
+                variant="h2"
+                component="div"
+                gutterBottom
+              >
+                Table Of Contents
+              </Typography>
+              <List className="toc-list">
+                {contents.map((child, index) => {
+                  return <div key={index}>{child}</div>;
+                })}
+              </List>
+            </>
+          );
+        } else if (
+          !props.hasToc &&
+          (child.type === "h1" || child.props.variant === "h1")
+        ) {
           return (
             <div key={index}>
               {child}
