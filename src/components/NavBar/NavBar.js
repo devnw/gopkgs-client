@@ -16,6 +16,7 @@ import {
   Button,
   Tooltip,
   MenuItem,
+  Grid,
 } from "@mui/material";
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -109,20 +110,19 @@ const NavBar = (props) => {
                   </MenuItem>
                 )
               )}
-              <MenuItem>
-                <a
-                  href="https://github.com/sponsors/devnw"
-                  target="_blank"
-                  rel="noreferrer noopener"
+              <MenuItem
+                onClick={handleCloseNavMenu}
+                component={Button}
+                href="https://github.com/sponsors/devnw"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Typography
+                  textAlign="center"
+                  sx={{ textTransform: "capitalize" }}
                 >
-                  <Typography
-                    textAlign="center"
-                    sx={{ textTransform: "capitalize" }}
-                  >
-                    <FavoriteIcon />
-                    Sponsor
-                  </Typography>
-                </a>
+                  Sponsor
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -151,6 +151,10 @@ const NavBar = (props) => {
               )
             )}
             <Button
+              target="_blank"
+              href="https://github.com/sponsors/devnw"
+              rel="noreferrer noopener"
+              onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
                 color: "white",
@@ -161,19 +165,7 @@ const NavBar = (props) => {
                 textAlign: "center",
               }}
             >
-              <a
-                href="https://github.com/sponsors/devnw"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Typography
-                  textAlign="center"
-                  sx={{ textTransform: "capitalize" }}
-                >
-                  <FavoriteIcon />
-                  Sponsor
-                </Typography>
-              </a>
+              Sponsor
             </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
