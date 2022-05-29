@@ -48,7 +48,7 @@ const NavBar = (props) => {
   };
 
   return (
-    <AppBar position="static" primary>
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

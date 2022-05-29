@@ -28,7 +28,7 @@ import "./App.scss";
 const defaultAlert = {
   open: false,
   message: "",
-  severity: "",
+  severity: "success",
 };
 
 const App = (props) => {
