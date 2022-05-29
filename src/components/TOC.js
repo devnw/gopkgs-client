@@ -1,10 +1,16 @@
 import React from "react";
 import { ListItemButton, ListItemText, List, Typography } from "@mui/material";
 
-const headers = ["h2", "h3", "h4", "h5", "h6"];
+const headerStyles = {
+  h2: { paddingLeft: "5px" },
+  h3: { paddingLeft: "15px" },
+  h4: { paddingLeft: "25px" },
+  h5: { paddingLeft: "35px" },
+  h6: { paddingLeft: "45px" },
+};
 let headerClass = "";
 
-const RecursiveTOC = (children) => {
+const RecursiveTOC = (children, headers) => {
   if (typeof children === "string") {
     return [];
   }
@@ -13,21 +19,26 @@ const RecursiveTOC = (children) => {
     return [];
   }
 
+  console.log(children);
+
   let contents = [];
   children.forEach((child) => {
     if (!child || typeof child === "string") {
       return;
     }
 
+    if (Array.isArray(child)) {
+      contents = [...contents, ...RecursiveTOC(child, headers)];
+    }
+
     let tag = "";
 
     if (!child.type || !headers.includes(child.type)) {
       if (!child.props?.variant || !headers.includes(child.props?.variant)) {
-        const cnodes = RecursiveTOC(child.props?.children);
-        if (cnodes?.length > 0) {
-          contents = [...contents, ...cnodes];
-        }
-
+        contents = [
+          ...contents,
+          ...RecursiveTOC(child.props?.children, headers),
+        ];
         return;
       } else {
         tag = child.props?.variant;
@@ -48,7 +59,7 @@ const RecursiveTOC = (children) => {
       ...contents,
       <ListItemButton
         key={id}
-        className={`toc-item-${tag}`}
+        sx={headerStyles[tag]}
         component="a"
         href={`#${id}`}
       >
@@ -61,11 +72,14 @@ const RecursiveTOC = (children) => {
 };
 
 const TOC = (props) => {
+  const headers = props.headers
+    ? props.headers
+    : ["h2", "h3", "h4", "h5", "h6"];
   if (props.render) {
     return null;
   }
 
-  const contents = RecursiveTOC(props.children);
+  const contents = RecursiveTOC(props.children, headers);
   return (
     <>
       {props.children.map((child, index) => {
@@ -84,7 +98,7 @@ const TOC = (props) => {
               >
                 Table Of Contents
               </Typography>
-              <List className="toc-list">
+              <List className="toc-list" dense>
                 {contents.map((child, index) => {
                   return <div key={index}>{child}</div>;
                 })}
@@ -110,7 +124,7 @@ const TOC = (props) => {
                     component="div"
                     gutterBottom
                   >
-                    Table Of Contents
+                    {props.title ? props.title : "Table Of Contents"}
                   </Typography>
                   <List className="toc-list">
                     {contents.map((child, index) => {
