@@ -4,6 +4,7 @@ import { Container, Typography } from "@mui/material";
 import "./About.scss";
 
 import Ref from "../../components/Ref";
+import TOC from "../../components/TOC";
 
 const About = () => {
   const aboutInfo = data.map((ele, idx) => {
@@ -33,17 +34,18 @@ const About = () => {
 
   return (
     <Container sx={{ padding: "10px" }}>
-      <Ref variant="h1">
-        About Custom Domain Imports (aka. Vanity Imports) in Google Go
-      </Ref>
-      <Typography variant="body1">
-        Go Packages (<code>gopkgs.org</code>) is created to be a FREE service to
-        allow Go developers to setup their own custom import paths without
-        having to go through the hassle of setting up a custom static site with
-        meta tags, hosting, content, etc.
-      </Typography>
-
-      <div>{aboutInfo}</div>
+      <TOC>
+        <Ref variant="h1">
+          About Custom Domain Imports (aka. Vanity Imports) in Google Go
+        </Ref>
+        <Typography variant="body1">
+          Go Packages (<code>gopkgs.org</code>) is created to be a FREE service
+          to allow Go developers to setup their own custom import paths without
+          having to go through the hassle of setting up a custom static site
+          with meta tags, hosting, content, etc.
+        </Typography>
+        <div>{aboutInfo}</div>
+      </TOC>
     </Container>
   );
 };
