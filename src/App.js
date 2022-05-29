@@ -119,15 +119,19 @@ const App = (props) => {
       fontWeightRegular: 400,
       fontWeightMedium: 500,
       h1: {
+        marginTop: "1rem",
         fontSize: "2.5rem",
       },
       h2: {
+        marginTop: "1rem",
         fontSize: "2rem",
       },
       h3: {
+        marginTop: "1rem",
         fontSize: "1.5rem",
       },
       h4: {
+        marginTop: "1rem",
         fontSize: "1rem",
       },
     },

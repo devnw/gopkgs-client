@@ -19,8 +19,6 @@ const RecursiveTOC = (children, headers) => {
     return [];
   }
 
-  console.log(children);
-
   let contents = [];
   children.forEach((child) => {
     if (!child || typeof child === "string") {
