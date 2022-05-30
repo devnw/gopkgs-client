@@ -1,7 +1,16 @@
 {
-  "name": "gopkgs-client",
-  "version": "0.1.0",
-  "private": true,
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.1",
     "@emotion/react": "^11.9.0",
@@ -19,11 +28,8 @@
     "sass": "^1.52.1",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "react-router-dom": "^6.3.0"
   },
   "eslintConfig": {
     "extends": [
@@ -31,19 +37,13 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "name": "gopkgs-client",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
   },
-  "devDependencies": {
-    "react-router-dom": "^6.3.0"
-  }
+  "version": "0.1.0"
 }

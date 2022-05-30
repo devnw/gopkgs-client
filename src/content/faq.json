@@ -1,84 +1,92 @@
-[{
-  "heading": "How Does It Work?",
-  "questions": [{
-    "question": "Custom Domain Imports (a.k.a. Vanity Import Paths)",
-    "answer": "Custom domain imports were added to the <code>go get</code> command to allow for import paths that were not directly hosted by a version control system. Instead these import paths are hosted on a custom domain with a page that contains a <code>meta</code> tag that redirects to the underlying repository. This allows for a more friendly experience for users of the custom domain.",
-    "additionalInfo": ""
+[
+  {
+    "heading": "How Does It Work?",
+    "questions": [
+      {
+        "additionalInfo": "",
+        "answer": "Custom domain imports were added to the <code>go get</code> command to allow for import paths that were not directly hosted by a version control system. Instead these import paths are hosted on a custom domain with a page that contains a <code>meta</code> tag that redirects to the underlying repository. This allows for a more friendly experience for users of the custom domain.",
+        "question": "Custom Domain Imports (a.k.a. Vanity Import Paths)"
+      },
+      {
+        "additionalInfo": "<ul><li>Example of a custom import: <strong><code>go.devnw.com/ttl</code></strong></li><li>Example of the <code>go get</code> query string: <strong>https://go.devnw.com/ttl?go-get=1</strong></li><li>Example <code>meta</code> tag: <strong>&lt;meta name=&quot;go-import&quot; content=&quot;go.devnw.com/ttl git https://github.com/devnw/ttl&quot;&gt;</strong></li></ul>",
+        "answer": "The <code>go get</code> command accesses the import path and passes the <code>?go-get=1</code> query parameter to import path with the expectation that the custom import path will host a <code>meta</code> tag redirects to the underlying repository.",
+        "question": "How does the Go toolchain access the custom domain?"
+      }
+    ]
   },
   {
-    "question": "How does the Go toolchain access the custom domain?",
-    "answer": "The <code>go get</code> command accesses the import path and passes the <code>?go-get=1</code> query parameter to import path with the expectation that the custom import path will host a <code>meta</code> tag redirects to the underlying repository.",
-    "additionalInfo": "<ul><li>Example of a custom import: <strong><code>go.devnw.com/ttl</code></strong></li><li>Example of the <code>go get</code> query string: <strong>https://go.devnw.com/ttl?go-get=1</strong></li><li>Example <code>meta</code> tag: <strong>&lt;meta name=&quot;go-import&quot; content=&quot;go.devnw.com/ttl git https://github.com/devnw/ttl&quot;&gt;</strong></li></ul>"
-  }]
-},{
-  "heading": "Cost",
-  "questions": [{
-      "question": "Is this \"really\" service free?",
-      "answer": "Yes, it is free.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Even for custom domains?",
-      "answer": "Yup, you can use your own domain name for free.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Even for private repositories?",
-      "answer": "Yes, you may use private repositories for free. Private repositories require additional local configuration and setup. <a href='/docs/'>Read more</a>.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Why would you do that?",
-      "answer": "For reasons other than being a benevolent OSS Contributor? I don't know.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "How do you cover the cost?",
-      "answer": "Currently the service is hosted on GCP free tier and the associated cost is minimal. As the service expands it may become more expensive for me to cover the cost. If you would like to donate to the project you can sponsor the <a href='https://github.com/devnw' target='_blank' rel='noopener noreferrer'>Developer Network Github organization</a> through <a href='https://github.com/sponsors/devnw' target='_blank' rel='noopener noreferrer'>Github Sponsors</a>.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "I really want to help! How do I get involved?",
-      "answer": "You're in luck! You can contribute to one of our repositories for the project via the <a href='https://github.com/devnw' target='_blank' rel='noopener noreferrer'>Developer Network Github organization</a> or you can monetarily sponsor the project here <a href='https://github.com/sponsors/devnw' target='_blank' rel='noopener noreferrer'>Github Sponsors</a>.",
-      "additionalInfo": ""
-    }
-  ]
-},{
-  "heading": "Privacy",
-  "questions": [{
-      "question": "Do you collect my information?",
-      "answer": "Only information provided via our authentication provider Auth0 and only the unique identifier of the user. We do not collect any other information.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Do you store my information?",
-      "answer": "Only the unique identifier of the user is stored.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Do you share my information?",
-      "answer": "No, we do not share any information.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Do you use cookies?",
-      "answer": "No, we do not use cookies.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Do you use Google Analytics, Google AdWords, or any other analytics/advertising service?",
-      "answer": "No",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Will you sell my information?",
-      "answer": "Absolutely not. We do not sell any information.",
-      "additionalInfo": ""
-    },
-    {
-      "question": "Will you host advertisements?",
-      "answer": "No, but we may list our sponsors here eventually which may contain corporate sponsors.",
-      "additionalInfo": ""
-    }
-  ]
-}]
+    "heading": "Cost",
+    "questions": [
+      {
+        "additionalInfo": "",
+        "answer": "Yes, it is free.",
+        "question": "Is this \"really\" service free?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "Yup, you can use your own domain name for free.",
+        "question": "Even for custom domains?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "Yes, you may use private repositories for free. Private repositories require additional local configuration and setup. <a href='/docs/'>Read more</a>.",
+        "question": "Even for private repositories?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "For reasons other than being a benevolent OSS Contributor? I don't know.",
+        "question": "Why would you do that?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "Currently the service is hosted on GCP free tier and the associated cost is minimal. As the service expands it may become more expensive for me to cover the cost. If you would like to donate to the project you can sponsor the <a href='https://github.com/devnw' target='_blank' rel='noopener noreferrer'>Developer Network Github organization</a> through <a href='https://github.com/sponsors/devnw' target='_blank' rel='noopener noreferrer'>Github Sponsors</a>.",
+        "question": "How do you cover the cost?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "You're in luck! You can contribute to one of our repositories for the project via the <a href='https://github.com/devnw' target='_blank' rel='noopener noreferrer'>Developer Network Github organization</a> or you can monetarily sponsor the project here <a href='https://github.com/sponsors/devnw' target='_blank' rel='noopener noreferrer'>Github Sponsors</a>.",
+        "question": "I really want to help! How do I get involved?"
+      }
+    ]
+  },
+  {
+    "heading": "Privacy",
+    "questions": [
+      {
+        "additionalInfo": "",
+        "answer": "Only information provided via our authentication provider Auth0 and only the unique identifier of the user. We do not collect any other information.",
+        "question": "Do you collect my information?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "Only the unique identifier of the user is stored.",
+        "question": "Do you store my information?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "No, we do not share any information.",
+        "question": "Do you share my information?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "No, we do not use cookies.",
+        "question": "Do you use cookies?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "No",
+        "question": "Do you use Google Analytics, Google AdWords, or any other analytics/advertising service?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "Absolutely not. We do not sell any information.",
+        "question": "Will you sell my information?"
+      },
+      {
+        "additionalInfo": "",
+        "answer": "No, but we may list our sponsors here eventually which may contain corporate sponsors.",
+        "question": "Will you host advertisements?"
+      }
+    ]
+  }
+]
