@@ -11,12 +11,23 @@ const About = () => {
     const qa = ele.questions.map((el, ix) => {
       return (
         <div key={ix}>
-          <Ref variant="h3">{el.question}</Ref>
+          <Ref variant="h3" sx={{ paddingBottom: "5px" }}>
+            {el.question}
+          </Ref>
           <Typography
             variant="body1"
             dangerouslySetInnerHTML={{ __html: el.answer }}
           ></Typography>{" "}
           {/* fyi - this is fine, it's static content */}
+          {!el.additionalInfo ? null : (
+            <Typography
+              variant="body2"
+              sx={{
+                padding: "1rem",
+              }}
+              dangerouslySetInnerHTML={{ __html: el.additionalInfo }}
+            ></Typography>
+          )}
         </div>
       );
     });
@@ -34,14 +45,14 @@ const About = () => {
   return (
     <Container sx={{ padding: "10px" }}>
       <TOC hasToc>
-        <Ref variant="h1">
-          About Custom Domain Imports (aka. Vanity Imports) in Google Go
-        </Ref>
+        <Ref variant="h1">What is GoPkgs.org all about?</Ref>
         <Typography variant="body1">
-          Go Packages (<code>gopkgs.org</code>) is created to be a FREE service
-          to allow Go developers to setup their own custom import paths without
-          having to go through the hassle of setting up a custom static site
-          with meta tags, hosting, content, etc.
+          Go Packages (<code>gopkgs.org</code>) is a FREE service for
+          simplifying developer setup of Go (golang) custom import paths.
+          Normally, you would have to manually setup static hosting with proper
+          meta tags, and maintain that site. This service allows you to setup
+          your import paths in a simple, easy to use, repeatable, and secure
+          way.
         </Typography>
         <TOC render />
         <div>{aboutInfo}</div>

@@ -120,6 +120,7 @@ const App = (props) => {
       fontWeightMedium: 500,
       h1: {
         marginTop: "1rem",
+        marginBottom: "1rem",
         fontSize: "2.5rem",
       },
       h2: {
