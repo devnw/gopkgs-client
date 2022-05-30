@@ -1,31 +1,31 @@
-import React from "react";
+import React from 'react'
 
-import Domain from "./Domain";
-import InvalidFirstSort from "../../utils/InvalidFirstSort";
+import Domain from './Domain'
+import InvalidFirstSort from '../../utils/InvalidFirstSort'
 
 const DomainList = (props) => {
-  if (props.domains?.length <= 0) {
-    return <div />;
-  }
+    if (props.domains?.length <= 0) {
+        return <div />
+    }
 
-  props.domains.sort(InvalidFirstSort);
+    props.domains.sort(InvalidFirstSort)
 
-  return (
-    <div>
-      {props.domains?.map((domain) => (
-        <Domain
-          alert={props.alert}
-          key={domain.id}
-          id={domain.id}
-          domain={domain.domain}
-          token={domain.token}
-          modules={domain.modules}
-          validated={domain.validated}
-          validate_by={domain.validate_by}
-        />
-      ))}
-    </div>
-  );
-};
+    return (
+        <div>
+            {props.domains?.map((domain) => (
+                <Domain
+                    alert={props.alert}
+                    key={domain.id}
+                    id={domain.id}
+                    domain={domain.domain}
+                    token={domain.token}
+                    modules={domain.modules}
+                    validated={domain.validated}
+                    validate_by={domain.validate_by}
+                />
+            ))}
+        </div>
+    )
+}
 
-export default DomainList;
+export default DomainList

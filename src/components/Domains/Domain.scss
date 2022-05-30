@@ -1,46 +1,46 @@
-.domain-summary{
-  color: #0E2E3F;
+.domain-summary {
+    color: #0e2e3f;
     background-color: #eee;
-    border-left: 15px solid #0E2E3F;
-    border-bottom: 1px solid #0E2E3F;
-    border-right: 1px solid #0E2E3F;
-    border-top: 1px solid #0E2E3F;
+    border-left: 15px solid #0e2e3f;
+    border-bottom: 1px solid #0e2e3f;
+    border-right: 1px solid #0e2e3f;
+    border-top: 1px solid #0e2e3f;
     margin-bottom: 5px;
     box-shadow: none !important;
     span {
-      font-family: Calibri, 'Trebuchet MS', sans-serif;
-      text-transform: lowercase;
+        font-family: Calibri, 'Trebuchet MS', sans-serif;
+        text-transform: lowercase;
     }
     & :before {
-      top: 0px !important;
+        top: 0px !important;
     }
 }
 
-.domain-name-background{
-  background-color: #185A7D;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #eee;
+.domain-name-background {
+    background-color: #185a7d;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #eee;
 }
 
-.domain-buttons-background{
-  background-color: #4197CB;
-  padding-right: 10px;
-  color: #eee;
+.domain-buttons-background {
+    background-color: #4197cb;
+    padding-right: 10px;
+    color: #eee;
 }
 
 .roundIconBorder {
-  border-radius: 100%;
-  color: white;
-  vertical-align: middle;
+    border-radius: 100%;
+    color: white;
+    vertical-align: middle;
 }
 
 .verified {
-  @extend .roundIconBorder;
-  background-color: green;
+    @extend .roundIconBorder;
+    background-color: green;
 }
 
 .unverified {
-  @extend .roundIconBorder;
-  background-color: darkred;
+    @extend .roundIconBorder;
+    background-color: darkred;
 }
