@@ -84,31 +84,11 @@ const TOC = (props) => {
     return (
         <>
             {props.children.map((child, index) => {
-                if (props.hasToc && child.type?.name === 'TOC') {
-                    return (
-                        <>
-                            <Typography
-                                id="toc"
-                                className={headerClass}
-                                sx={{
-                                    marginTop: '10px',
-                                }}
-                                variant="h2"
-                                component="div"
-                                gutterBottom
-                            >
-                                Table Of Contents
-                            </Typography>
-                            <List className="toc-list" dense>
-                                {contents.map((child, index) => {
-                                    return <div key={index}>{child}</div>
-                                })}
-                            </List>
-                        </>
-                    )
-                } else if (
-                    !props.hasToc &&
-                    (child.type === 'h1' || child.props.variant === 'h1')
+                if (
+                    (!props.hasToc &&
+                        (child.type === 'h1' ||
+                            child.props.variant === 'h1')) ||
+                    child.type?.name === 'TOC'
                 ) {
                     return (
                         <div key={index}>
