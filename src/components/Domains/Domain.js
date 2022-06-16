@@ -15,23 +15,11 @@ import ReplayIcon from '@mui/icons-material/Replay'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import ErrorIcon from '@mui/icons-material/Error'
 import DoneAllIcon from '@mui/icons-material/DoneAll'
-
-import ValidateDomain from './ValidateDomain'
 import './Domain.scss'
 
 const Domain = (props) => {
-    const [validateOpen, setValidateOpen] = React.useState(false)
-
     const handleValidateOpen = () => {
-        setValidateOpen(true)
-    }
-
-    const handleValidateClose = () => {
-        setValidateOpen(false)
-    }
-
-    const handleValidateDomain = () => {
-        setValidateOpen(false)
+        props.validate(props.id)
     }
 
     const requestToken = () => {}
@@ -149,21 +137,6 @@ const Domain = (props) => {
                     </Grid>
                 </Grid>
             </CardActions>
-            <ValidateDomain
-                alert={props.alert}
-                id={props.id}
-                title={
-                    props.validated
-                        ? null
-                        : `${props.domain} is not yet validated`
-                }
-                open={validateOpen}
-                domain={props.domain}
-                token={props.token}
-                validated={props.validated}
-                handleClose={handleValidateClose}
-                handleValidate={handleValidateDomain}
-            />
         </Card>
     )
 }

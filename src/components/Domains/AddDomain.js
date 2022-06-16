@@ -20,6 +20,7 @@ const AddDomain = (props) => {
         }
 
         props.add(domain)
+        setDomain('')
     }
 
     return (
@@ -43,6 +44,7 @@ const AddDomain = (props) => {
                             id="outlined-required"
                             label="Domain"
                             placeholder="sub.mydomain.com"
+                            value={domain}
                             onChange={handleChange}
                         />
                     </Grid>

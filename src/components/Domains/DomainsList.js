@@ -22,6 +22,7 @@ const DomainList = (props) => {
                     modules={domain.modules}
                     validated={domain.validated}
                     validate_by={domain.validate_by}
+                    validate={props.validate}
                 />
             ))}
         </div>
