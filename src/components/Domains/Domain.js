@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import copy from 'clipboard-copy'
 import {
     Card,
@@ -7,19 +7,49 @@ import {
     Grid,
     Tooltip,
     IconButton,
+    Typography,
 } from '@mui/material'
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import ReplayIcon from '@mui/icons-material/Replay'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import ErrorIcon from '@mui/icons-material/Error'
+import InfoIcon from '@mui/icons-material/Info'
 import DoneAllIcon from '@mui/icons-material/DoneAll'
 import './Domain.scss'
 
 const Domain = (props) => {
+    const [CNAMEErr, setCNAMEErr] = useState(false)
+    // Determine if the cname is pointing to the correct domain
+    useEffect(() => {
+        fetch(`https://dns.google/resolve?name=${props.domain}`).then((res) => {
+            if (res.status >= 300) {
+                console.log(`Error while loading CNAME for ${props.domain}`)
+                return
+            }
+
+            res.json().then((data) => {
+                console.log(data)
+                if (!data.Answer) {
+                    setCNAMEErr(true)
+                    return
+                }
+
+                if (data.Answer && data.Answer.length <= 0) {
+                    setCNAMEErr(true)
+                    return
+                }
+
+                if (data.Answer[0].data !== 'srv.gopkgs.org.') {
+                    console.log(data.Answer[0].data)
+                    setCNAMEErr(true)
+                }
+            })
+        })
+    }, [props.domain, setCNAMEErr])
+
     const handleValidateOpen = () => {
-        props.handleValidateDomain(props.id)
+        props.handleValidate(props.id)
     }
 
     const onCopy = (content) => {
@@ -48,7 +78,7 @@ const Domain = (props) => {
                     className="domain-name-background"
                 >
                     <Grid item xs={8} md={10}>
-                        <h2>{props.domain}</h2>
+                        <Typography variant="h2">{props.domain}</Typography>
                     </Grid>
                     <Grid item xs={4} md={2} sx={{ textAlign: 'right' }}>
                         {!props.validated ? (
@@ -56,7 +86,7 @@ const Domain = (props) => {
                                 <Tooltip
                                     title={'This domain is not validated yet'}
                                 >
-                                    <ErrorIcon
+                                    <InfoIcon
                                         fontSize="large"
                                         className="unverified"
                                     />
@@ -79,7 +109,17 @@ const Domain = (props) => {
             </CardActionArea>
             <CardActions>
                 <Grid container spacing={2}>
-                    {props.modules?.length > 0 ? (
+                    {!CNAMEErr ? null : (
+                        <Grid item xs={4}>
+                            <Typography
+                                variant="h3"
+                                sx={{ color: 'darkred', marginLeft: '10px' }}
+                            >
+                                {props.domain} is not pointing to srv.gopkgs.org
+                            </Typography>
+                        </Grid>
+                    )}
+                    {!CNAMEErr && props.modules?.length > 0 ? (
                         <Grid item xs={4}>
                             Registered Modules: {props.modules.length}
                         </Grid>

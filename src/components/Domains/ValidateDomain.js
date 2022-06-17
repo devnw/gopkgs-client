@@ -63,6 +63,16 @@ const ValidateDomain = (props) => {
                                 />
                             </Tooltip>
                         </Copy>
+                        <Typography>
+                            Add TXT CNAME Record for{' '}
+                            <Typography sx={{ fontWeight: 'bold' }}>
+                                {props.domain}
+                            </Typography>{' '}
+                            pointing to
+                            <Typography sx={{ fontWeight: 'bold' }}>
+                                srv.gopkgs.org
+                            </Typography>
+                        </Typography>
                     </DialogContentText>
                 )}
             </DialogContent>
