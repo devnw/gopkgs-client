@@ -23,6 +23,10 @@ const DomainList = (props) => {
                     validated={domain.validated}
                     validate_by={domain.validate_by}
                     validate={props.validate}
+                    handleValidate={props.handleValidateDomain}
+                    handleReVerify={props.handleReVerify}
+                    handleRequestToken={props.handleRequestToken}
+                    handleDelete={props.handleDelete}
                 />
             ))}
         </div>

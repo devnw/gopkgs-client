@@ -19,14 +19,8 @@ import './Domain.scss'
 
 const Domain = (props) => {
     const handleValidateOpen = () => {
-        props.validate(props.id)
+        props.handleValidateDomain(props.id)
     }
-
-    const requestToken = () => {}
-
-    const reVerify = () => {}
-
-    const handleDelete = () => {}
 
     const onCopy = (content) => {
         copy(props.data)
@@ -111,7 +105,12 @@ const Domain = (props) => {
                                     <Tooltip title={'New Token'}>
                                         <ReplayIcon
                                             fontSize="large"
-                                            onClick={requestToken}
+                                            onClick={() =>
+                                                props.handleRequestToken(
+                                                    props.id,
+                                                    props.domain
+                                                )
+                                            }
                                         />
                                     </Tooltip>
                                 </IconButton>
@@ -119,7 +118,12 @@ const Domain = (props) => {
                                     <Tooltip title={'Verify Domain'}>
                                         <CheckCircleIcon
                                             fontSize="large"
-                                            onClick={reVerify}
+                                            onClick={() =>
+                                                props.handleReVerify(
+                                                    props.id,
+                                                    props.domain
+                                                )
+                                            }
                                         />
                                     </Tooltip>
                                 </IconButton>
@@ -130,7 +134,13 @@ const Domain = (props) => {
                             <Tooltip title={'Delete Domain'}>
                                 <DeleteForeverIcon
                                     fontSize="large"
-                                    onClick={handleDelete}
+                                    value={props.id}
+                                    onClick={() =>
+                                        props.handleDelete(
+                                            props.id,
+                                            props.domain
+                                        )
+                                    }
                                 />
                             </Tooltip>
                         </IconButton>

@@ -12,82 +12,13 @@ import {
     Tooltip,
 } from '@mui/material'
 
-import { useAuth0 } from '@auth0/auth0-react'
-import { getVerify } from '../../api/verify'
-import { getToken } from '../../api/token'
-import { delDomain } from '../../api/domains'
-
 import Copy from '../Copy'
 
 const ValidateDomain = (props) => {
-    const { getAccessTokenSilently } = useAuth0()
     const title = props.title || 'Domain Verification Status'
 
     const handleClose = () => {
         props.handleClose()
-    }
-
-    const handleDelete = () => {
-        delDomain(getAccessTokenSilently, props.id)
-            .then((d) => {
-                props.alert({
-                    open: true,
-                    message: `Domain ${d.domain} deleted successfully`,
-                    severity: 'success',
-                })
-
-                // TODO: Remove from domain list
-
-                handleClose()
-            })
-            .catch((err) => {
-                console.log(err)
-                props.alert({
-                    open: true,
-                    message: `Error while deleting domain`,
-                    severity: 'error',
-                })
-            })
-    }
-
-    const reVerify = () => {
-        getVerify(getAccessTokenSilently, props.id)
-            .then((d) => {
-                props.alert({
-                    open: true,
-                    message: `Domain ${d.domain} verified successfully`,
-                    severity: 'success',
-                })
-
-                handleClose()
-            })
-            .catch((err) => {
-                props.alert({
-                    open: true,
-                    message:
-                        'Domain verification failed; please try again in 1 hour.',
-                    severity: 'error',
-                })
-            })
-    }
-
-    const requestToken = () => {
-        getToken(getAccessTokenSilently, props.id)
-            .then((d) => {
-                props.alert({
-                    open: true,
-                    message: `Token for domain ${d.domain} requested successfully`,
-                    severity: 'success',
-                })
-            })
-            .catch((err) => {
-                props.alert({
-                    open: true,
-                    message:
-                        'Token request failed; please try again in 24 hours.',
-                    severity: 'error',
-                })
-            })
     }
 
     let statusColor = 'darkred'
@@ -139,7 +70,13 @@ const ValidateDomain = (props) => {
                 {props.validated ? (
                     <Grid container spacing={2}>
                         <Grid item>
-                            <Button onClick={handleDelete}>Delete</Button>
+                            <Button
+                                onClick={() =>
+                                    props.handleDelete(props.id, props.domain)
+                                }
+                            >
+                                Delete
+                            </Button>
                         </Grid>
                         <Grid item sx={{ textAlign: 'right' }}>
                             <Button onClick={handleClose}>Cancel</Button>
@@ -148,13 +85,34 @@ const ValidateDomain = (props) => {
                 ) : (
                     <Grid container spacing={4}>
                         <Grid item>
-                            <Button onClick={requestToken}>New Token</Button>
+                            <Button
+                                onClick={() =>
+                                    props.handleRequestToken(
+                                        props.id,
+                                        props.domain
+                                    )
+                                }
+                            >
+                                New Token
+                            </Button>
                         </Grid>
                         <Grid item>
-                            <Button onClick={reVerify}>Verify</Button>
+                            <Button
+                                onClick={() =>
+                                    props.handleReVerify(props.id, props.domain)
+                                }
+                            >
+                                Verify
+                            </Button>
                         </Grid>
                         <Grid item>
-                            <Button onClick={handleDelete}>Delete</Button>
+                            <Button
+                                onClick={() =>
+                                    props.handleDelete(props.id, props.domain)
+                                }
+                            >
+                                Delete
+                            </Button>
                         </Grid>
                         <Grid item>
                             <Button onClick={handleClose}>Cancel</Button>
