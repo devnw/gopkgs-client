@@ -112,7 +112,7 @@ const Domain = (props) => {
                     {!CNAMEErr ? null : (
                         <Grid item xs={4}>
                             <Typography
-                                variant="h3"
+                                variant="body"
                                 sx={{ color: 'darkred', marginLeft: '10px' }}
                             >
                                 {props.domain} is not pointing to srv.gopkgs.org
