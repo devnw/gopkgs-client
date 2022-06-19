@@ -18,6 +18,8 @@ import InfoIcon from '@mui/icons-material/Info'
 import DoneAllIcon from '@mui/icons-material/DoneAll'
 import './Domain.scss'
 
+const srv = 'srv.gopkgs.org'
+
 const Domain = (props) => {
     const [CNAMEErr, setCNAMEErr] = useState(false)
     // Determine if the cname is pointing to the correct domain
@@ -29,7 +31,6 @@ const Domain = (props) => {
             }
 
             res.json().then((data) => {
-                console.log(data)
                 if (!data.Answer) {
                     setCNAMEErr(true)
                     return
@@ -40,8 +41,7 @@ const Domain = (props) => {
                     return
                 }
 
-                if (data.Answer[0].data !== 'srv.gopkgs.org.') {
-                    console.log(data.Answer[0].data)
+                if (data.Answer[0].data !== `${srv}.`) {
                     setCNAMEErr(true)
                 }
             })
@@ -115,7 +115,7 @@ const Domain = (props) => {
                                 variant="body"
                                 sx={{ color: 'darkred', marginLeft: '10px' }}
                             >
-                                {props.domain} is not pointing to srv.gopkgs.org
+                                {props.domain} is not pointing to {srv}
                             </Typography>
                         </Grid>
                     )}

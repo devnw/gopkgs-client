@@ -36,10 +36,6 @@ const AddModule = (props) => {
         setRepo(event.target.value)
     }
 
-    // const handleWebsiteChange = (event) => {
-    //   setWebsite(event.target.value);
-    // };
-
     const handleDocsChange = (event) => {
         setDocs(event.target.value)
     }
@@ -55,6 +51,13 @@ const AddModule = (props) => {
         }
 
         props.addModule(domain, mod)
+
+        // Reset the form
+        setDomain('')
+        setName('')
+        setRepo('')
+        setDocs('')
+        setType(types[0])
     }
 
     return (

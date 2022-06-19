@@ -190,6 +190,7 @@ const Domains = (props) => {
                     token={selectedDomain?.token}
                     validated={selectedDomain?.validated}
                     validate_by={selectedDomain?.validate_by}
+                    updated={selectedDomain?.updated}
                     handleClose={handleValidateClose}
                     handleValidate={handleValidateDomain}
                     handleReVerify={handleReVerify}

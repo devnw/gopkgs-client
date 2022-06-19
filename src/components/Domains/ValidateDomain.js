@@ -78,10 +78,20 @@ const ValidateDomain = (props) => {
                                     variant="h4"
                                     sx={{ fontWeight: 'bold' }}
                                 >
-                                    Current Token Expires:{' '}
-                                    {new Date(
-                                        props.validate_by
-                                    ).toLocaleString()}
+                                    {!props.updated ? null : (
+                                        <div>
+                                            Last Updated:{' '}
+                                            {new Date(
+                                                props.updated
+                                            ).toLocaleString()}
+                                        </div>
+                                    )}
+                                    <div>
+                                        Current Token Expires:{' '}
+                                        {new Date(
+                                            props.validate_by
+                                        ).toLocaleString()}
+                                    </div>
                                 </Typography>
                                 <Copy caption={true} data={props.token}>
                                     <Tooltip title={'Click to Copy'}>
