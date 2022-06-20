@@ -7,9 +7,6 @@ import {
     MenuItem,
     Button,
     DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
 } from '@mui/material'
 
 const EditModule = (props) => {
