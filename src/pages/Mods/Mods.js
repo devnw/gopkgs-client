@@ -56,6 +56,52 @@ const Mods = (props) => {
             })
     }
 
+    const updateModule = (domain, mod) => {
+        if (!props.domains) {
+            return
+        }
+
+        postModules(getAccessTokenSilently, domain.id, [mod])
+            .then((m) => {
+                props.setDomains(
+                    props.domains.map((d, idx) => {
+                        if (d.domain === domain.domain) {
+                            return {
+                                ...domain,
+                                key: idx,
+                                modules: domain.modules.map((origMod) => {
+                                    if (origMod.path === mod.path) {
+                                        return m[0]
+                                    }
+
+                                    return origMod
+                                }),
+                            }
+                        }
+
+                        return d
+                    })
+                )
+
+                props.alert({
+                    open: true,
+                    message: `Module ${
+                        domain.domain + '/' + mod.path
+                    } updated successfully`,
+                    severity: 'success',
+                })
+            })
+            .catch((err) => {
+                props.alert({
+                    open: true,
+                    message: `Error updating module: ${
+                        domain.domain + '/' + mod.path
+                    }`,
+                    severity: 'error',
+                })
+            })
+    }
+
     const deleteModule = (domain, mod) => {
         if (!props.domains) {
             return
@@ -118,7 +164,7 @@ const Mods = (props) => {
             <ModuleList
                 alert={props.alert}
                 domains={props.domains}
-                updateModule={addModule}
+                updateModule={updateModule}
                 deleteModule={deleteModule}
             />
         </Container>

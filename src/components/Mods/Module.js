@@ -5,12 +5,7 @@ import {
     Typography,
     Link,
     Tooltip,
-    Button,
     Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
     IconButton,
 } from '@mui/material'
 import Copy from '../Copy'
@@ -38,11 +33,6 @@ const Module = (props) => {
     }
 
     const handleEditClose = () => {
-        setEditOpen(false)
-    }
-
-    const handleEditModule = () => {
-        props.updateModule(props.domain, mod)
         setEditOpen(false)
     }
 
@@ -128,22 +118,12 @@ const Module = (props) => {
                         </Tooltip>
                     </IconButton>
                     <Dialog open={editOpen} onClose={handleEditClose}>
-                        <DialogTitle>Edit Module</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText>
-                                Update the module's import path, version control
-                                system, or repository URL.
-                            </DialogContentText>
-                            <EditModule
-                                domain={props.domain}
-                                module={props.module}
-                                updateModule={updateModule}
-                            />
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleEditClose}>Cancel</Button>
-                            <Button onClick={handleEditModule}>Save</Button>
-                        </DialogActions>
+                        <EditModule
+                            domain={props.domain}
+                            module={props.module}
+                            updateModule={updateModule}
+                            handleEditClose={handleEditClose}
+                        />
                     </Dialog>
                     <IconButton>
                         <Tooltip title={'Delete Module'}>

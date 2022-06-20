@@ -26,7 +26,6 @@ const Domain = (props) => {
     useEffect(() => {
         fetch(`https://dns.google/resolve?name=${props.domain}`).then((res) => {
             if (res.status >= 300) {
-                console.log(`Error while loading CNAME for ${props.domain}`)
                 return
             }
 

@@ -15,7 +15,6 @@ const AddDomain = (props) => {
         event.preventDefault()
 
         if (!domain?.match(domainPattern)) {
-            console.log('Invalid domain', event.target.value)
             return
         }
 
