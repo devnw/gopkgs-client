@@ -84,7 +84,7 @@ const Module = (props) => {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={9}>
-                            <Link href={props.module.repo}>
+                            <Link href={props.module.repo} target="_blank">
                                 <Typography className="module-info">
                                     {props.module.repo}
                                 </Typography>
@@ -92,22 +92,27 @@ const Module = (props) => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} md={3}>
-                            <Typography className="module-info" variant="h5">
-                                Documentation
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} md={9}>
-                            <Link href={props.module.docs}>
-                                <Typography className="module-info">
-                                    {props.module.docs}
+                {!props.module.docs ? null : (
+                    <Grid item xs={12}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} md={3}>
+                                <Typography
+                                    className="module-info"
+                                    variant="h5"
+                                >
+                                    Documentation
                                 </Typography>
-                            </Link>
+                            </Grid>
+                            <Grid item xs={12} md={9}>
+                                <Link href={props.module.docs} target="_blank">
+                                    <Typography className="module-info">
+                                        {props.module.docs}
+                                    </Typography>
+                                </Link>
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
+                )}
                 <Grid fullWidth item xs={12} sx={{ textAlign: 'right' }}>
                     <IconButton>
                         <Tooltip title={'Edit Module'}>

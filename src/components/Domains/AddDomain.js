@@ -15,6 +15,11 @@ const AddDomain = (props) => {
         event.preventDefault()
 
         if (!domain?.match(domainPattern)) {
+            props.alert({
+                open: true,
+                message: `Invalid domain. Please enter a valid domain.`,
+                severity: 'error',
+            })
             return
         }
 

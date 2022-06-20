@@ -43,6 +43,15 @@ const AddModule = (props) => {
     const handleAddModule = (event) => {
         event.preventDefault()
 
+        if (!domain || !name || !repo) {
+            props.alert({
+                open: true,
+                message: `Error adding module. All fields are required except Documentation.`,
+                severity: 'error',
+            })
+            return
+        }
+
         const mod = {
             path: name,
             type: type,
