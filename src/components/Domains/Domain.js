@@ -17,11 +17,13 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import InfoIcon from '@mui/icons-material/Info'
 import DoneAllIcon from '@mui/icons-material/DoneAll'
 import './Domain.scss'
+import DeleteDialog from '../DeleteDialog'
 
 const srv = 'srv.gopkgs.org'
 
 const Domain = (props) => {
     const [CNAMEErr, setCNAMEErr] = useState(false)
+    const [deleteOpen, setDeleteOpen] = React.useState(false)
     // Determine if the cname is pointing to the correct domain
     useEffect(() => {
         fetch(`https://dns.google/resolve?name=${props.domain}`).then((res) => {
@@ -49,6 +51,19 @@ const Domain = (props) => {
 
     const handleValidateOpen = () => {
         props.handleValidate(props.id)
+    }
+
+    const handleDeleteClickOpen = () => {
+        setDeleteOpen(true)
+    }
+
+    const handleDeleteClose = () => {
+        setDeleteOpen(false)
+    }
+
+    const handleDeleteDomain = () => {
+        props.handleDelete(props.id, props.domain)
+        setDeleteOpen(false)
     }
 
     const onCopy = (content) => {
@@ -130,58 +145,56 @@ const Domain = (props) => {
                     >
                         {!props.validated ? (
                             <>
-                                <IconButton>
+                                <IconButton onClick={onCopy}>
                                     <Tooltip title={'Copy TXT Record'}>
-                                        <ContentCopyIcon
-                                            fontSize="large"
-                                            onClick={onCopy}
-                                        />
+                                        <ContentCopyIcon fontSize="large" />
                                     </Tooltip>
                                 </IconButton>
 
-                                <IconButton>
+                                <IconButton
+                                    onClick={() =>
+                                        props.handleRequestToken(
+                                            props.id,
+                                            props.domain
+                                        )
+                                    }
+                                >
                                     <Tooltip title={'New Token'}>
-                                        <ReplayIcon
-                                            fontSize="large"
-                                            onClick={() =>
-                                                props.handleRequestToken(
-                                                    props.id,
-                                                    props.domain
-                                                )
-                                            }
-                                        />
+                                        <ReplayIcon fontSize="large" />
                                     </Tooltip>
                                 </IconButton>
-                                <IconButton>
+                                <IconButton
+                                    onClick={() =>
+                                        props.handleReVerify(
+                                            props.id,
+                                            props.domain
+                                        )
+                                    }
+                                >
                                     <Tooltip title={'Verify Domain'}>
-                                        <CheckCircleIcon
-                                            fontSize="large"
-                                            onClick={() =>
-                                                props.handleReVerify(
-                                                    props.id,
-                                                    props.domain
-                                                )
-                                            }
-                                        />
+                                        <CheckCircleIcon fontSize="large" />
                                     </Tooltip>
                                 </IconButton>
                             </>
                         ) : null}
 
-                        <IconButton>
+                        <IconButton onClick={handleDeleteClickOpen}>
                             <Tooltip title={'Delete Domain'}>
                                 <DeleteForeverIcon
                                     fontSize="large"
                                     value={props.id}
-                                    onClick={() =>
-                                        props.handleDelete(
-                                            props.id,
-                                            props.domain
-                                        )
-                                    }
                                 />
                             </Tooltip>
                         </IconButton>
+                        <DeleteDialog
+                            title={`Delete Domain ${props.domain}`}
+                            confirmationText={
+                                'Are you sure you want to delete this domain?'
+                            }
+                            open={deleteOpen}
+                            handleClose={handleDeleteClose}
+                            handleDelete={handleDeleteDomain}
+                        />
                     </Grid>
                 </Grid>
             </CardActions>
