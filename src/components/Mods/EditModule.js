@@ -44,13 +44,6 @@ const EditModule = (props) => {
 
     return (
         <>
-            <DialogTitle>Edit Module</DialogTitle>
-            <DialogContent>
-                <DialogContentText>
-                    Update the module's import path, version control system, or
-                    repository URL.
-                </DialogContentText>
-            </DialogContent>
             <Grid
                 container
                 spacing={{ xs: 2 }}
@@ -75,7 +68,7 @@ const EditModule = (props) => {
                         ))}
                     </Select>
                 </Grid>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12}>
                     <TextField
                         required
                         fullWidth
@@ -86,7 +79,7 @@ const EditModule = (props) => {
                         onChange={handleRepoChange}
                     />
                 </Grid>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         id="outlined-required"
