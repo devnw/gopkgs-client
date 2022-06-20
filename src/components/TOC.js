@@ -88,7 +88,7 @@ const TOC = (props) => {
                     (!props.hasToc &&
                         (child.type === 'h1' ||
                             child.props.variant === 'h1')) ||
-                    child.type?.name === 'TOC'
+                    (child.type?.name === 'TOC' && child.props?.render)
                 ) {
                     return (
                         <div key={index}>
