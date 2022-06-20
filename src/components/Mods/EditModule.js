@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { TextField, Grid, Typography, Select, MenuItem } from '@mui/material'
 
 const EditModule = (props) => {
-    const importPath = props.domain + '/' + props.path
+    const importPath = props.domain.domain + '/' + props.module.path
     const types = ['git', 'mod', 'svn', 'hg', 'fossil', 'bzr']
-    const [type, setType] = useState(props.type)
-    const [repo, setRepo] = useState(props.repo)
-    const [docs, setDocs] = useState(props.docs)
+    const [type, setType] = useState(props.module.type)
+    const [repo, setRepo] = useState(props.module.repo)
+    const [docs, setDocs] = useState(props.module.docs)
 
     const handleVCSChange = (event) => {
         setType(event.target.value)
@@ -19,24 +19,6 @@ const EditModule = (props) => {
     const handleDocsChange = (event) => {
         setDocs(event.target.value)
     }
-
-    // const handleEditDomain = (event) => {
-    //   event.preventDefault();
-
-    //   // props.updateDomain({
-    //   //   ...props.domain,
-    //   //   modules: [
-    //   //     {
-    //   //       id: Math.random(),
-    //   //       path: name,
-    //   //       type: type,
-    //   //       repo: repo,
-    //   //       docs: docs,
-    //   //     },
-    //   //     ...props.domain.modules,
-    //   //   ],
-    //   // });
-    // };
 
     return (
         <Grid

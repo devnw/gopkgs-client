@@ -22,7 +22,6 @@ const DeleteDialog = (props) => {
     }
 
     const confirmDelete = () => {
-        console.log('Deleting module:', props.module)
         props.handleDelete(props.id)
         handleClose()
     }

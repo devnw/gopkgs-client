@@ -22,10 +22,16 @@ import DeleteDialog from '../DeleteDialog'
 import './Modules.scss'
 
 const Module = (props) => {
-    const importPath = props.domain + '/' + props.path
+    const importPath = props.domain.domain + '/' + props.module.path
 
     const [editOpen, setEditOpen] = React.useState(false)
     const [deleteOpen, setDeleteOpen] = React.useState(false)
+    const [mod, setMod] = React.useState(props.module)
+
+    const updateModule = (mod) => {
+        setMod(mod)
+        props.updateModule(props.domain, mod)
+    }
 
     const handleEditClickOpen = () => {
         setEditOpen(true)
@@ -36,6 +42,7 @@ const Module = (props) => {
     }
 
     const handleEditModule = () => {
+        props.updateModule(props.domain, mod)
         setEditOpen(false)
     }
 
@@ -48,6 +55,7 @@ const Module = (props) => {
     }
 
     const handleDeleteModule = () => {
+        props.deleteModule(props.domain, mod)
         setDeleteOpen(false)
     }
 
@@ -73,7 +81,7 @@ const Module = (props) => {
                         </Grid>
                         <Grid item xs={2} md={1}>
                             <Typography className="module-type">
-                                {props.type}
+                                {props.module.type}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -86,9 +94,9 @@ const Module = (props) => {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={9}>
-                            <Link href={props.repo}>
+                            <Link href={props.module.repo}>
                                 <Typography className="module-info">
-                                    {props.repo}
+                                    {props.module.repo}
                                 </Typography>
                             </Link>
                         </Grid>
@@ -102,9 +110,9 @@ const Module = (props) => {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={9}>
-                            <Link href={props.docs}>
+                            <Link href={props.module.docs}>
                                 <Typography className="module-info">
-                                    {props.docs}
+                                    {props.module.docs}
                                 </Typography>
                             </Link>
                         </Grid>
@@ -128,10 +136,8 @@ const Module = (props) => {
                             </DialogContentText>
                             <EditModule
                                 domain={props.domain}
-                                path={props.path}
-                                type={props.type}
-                                repo={props.repo}
-                                docs={props.docs}
+                                module={props.module}
+                                updateModule={updateModule}
                             />
                         </DialogContent>
                         <DialogActions>

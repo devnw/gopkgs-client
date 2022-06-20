@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import ModuleList from '../../components/Mods/ModuleList'
 import AddModule from '../../components/Mods/AddModule'
 
-import { postModules } from '../../api/modules'
+import { postModules, delModule } from '../../api/modules'
 import './Mods.scss'
 
 const Mods = (props) => {
@@ -17,10 +17,6 @@ const Mods = (props) => {
 
     const addModule = (domain, mod) => {
         if (!props.domains) {
-            return
-        }
-
-        if (props.modules?.find((m) => m.path === mod.path)) {
             return
         }
 
@@ -60,6 +56,51 @@ const Mods = (props) => {
             })
     }
 
+    const deleteModule = (domain, mod) => {
+        if (!props.domains) {
+            return
+        }
+
+        delModule(getAccessTokenSilently, domain.id, mod.path)
+            .then((res) => {
+                if (res.status >= 300) {
+                    props.alert({
+                        open: true,
+                        message: `Module deletion failed.`,
+                        severity: 'error',
+                    })
+                    return
+                }
+
+                props.setDomains(
+                    props.domains.map((d, idx) => {
+                        return {
+                            ...d,
+                            key: idx,
+                            modules: d.modules.filter(
+                                (m) =>
+                                    d.id !== domain.id ||
+                                    (d.id === domain.id && m.path !== mod.path)
+                            ),
+                        }
+                    })
+                )
+
+                props.alert({
+                    open: true,
+                    message: `Module ${mod.path} deleted successfully`,
+                    severity: 'success',
+                })
+            })
+            .catch((err) => {
+                props.alert({
+                    open: true,
+                    message: `Module deletion failed.`,
+                    severity: 'error',
+                })
+            })
+    }
+
     return (
         <Container sx={{ padding: '10px' }}>
             <AddModule
@@ -74,7 +115,12 @@ const Mods = (props) => {
             >
                 Your Modules
             </Typography>
-            <ModuleList alert={props.alert} domains={props.domains} />
+            <ModuleList
+                alert={props.alert}
+                domains={props.domains}
+                updateModule={addModule}
+                deleteModule={deleteModule}
+            />
         </Container>
     )
 }

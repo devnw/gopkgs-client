@@ -39,17 +39,18 @@ const ModuleList = (props) => {
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails className="accordion-details">
-                        {domain.modules?.map((module) => (
-                            <Module
-                                className="moduleListItem"
-                                key={domain.domain + module.path}
-                                domain={domain.domain}
-                                path={module.path}
-                                type={module.type}
-                                repo={module.repo}
-                                docs={module.docs}
-                            />
-                        ))}
+                        {domain.modules?.map((mod) =>
+                            !mod ? null : (
+                                <Module
+                                    className="moduleListItem"
+                                    key={domain.domain + mod.path}
+                                    domain={domain}
+                                    module={mod}
+                                    updateModule={props.updateModule}
+                                    deleteModule={props.deleteModule}
+                                />
+                            )
+                        )}
                     </AccordionDetails>
                 </Accordion>
             ))}
