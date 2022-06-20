@@ -52,13 +52,7 @@ const AddDomain = (props) => {
                             onChange={handleChange}
                         />
                     </Grid>
-                    <Grid
-                        fullWidth
-                        item
-                        xs={12}
-                        md={1}
-                        sx={{ textAlign: 'right' }}
-                    >
+                    <Grid item xs={12} md={1} sx={{ textAlign: 'right' }}>
                         <Button
                             variant="contained"
                             type="submit"

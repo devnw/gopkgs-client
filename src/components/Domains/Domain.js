@@ -124,7 +124,6 @@ const Domain = (props) => {
                         </Grid>
                     ) : null}
                     <Grid
-                        fullWidth
                         item
                         xs={props.modules?.length > 0 ? 8 : 12}
                         sx={{ textAlign: 'right' }}

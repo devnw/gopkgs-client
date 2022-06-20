@@ -158,7 +158,7 @@ const AddModule = (props) => {
                             onChange={handleDocsChange}
                         />
                     </Grid>
-                    <Grid item fullWidth xs={12} sx={{ textAlign: 'right' }}>
+                    <Grid item xs={12} sx={{ textAlign: 'right' }}>
                         <Button
                             variant="contained"
                             type="submit"

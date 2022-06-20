@@ -113,7 +113,7 @@ const Module = (props) => {
                         </Grid>
                     </Grid>
                 )}
-                <Grid fullWidth item xs={12} sx={{ textAlign: 'right' }}>
+                <Grid item xs={12} sx={{ textAlign: 'right' }}>
                     <IconButton>
                         <Tooltip title={'Edit Module'}>
                             <EditIcon
