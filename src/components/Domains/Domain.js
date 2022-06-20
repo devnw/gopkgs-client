@@ -66,6 +66,11 @@ const Domain = (props) => {
         setDeleteOpen(false)
     }
 
+    const handleRequestToken = () => {
+        props.handleRequestToken(props.id, props.domain)
+        handleValidateOpen()
+    }
+
     const onCopy = (content) => {
         copy(props.data)
         props.alert({
@@ -151,14 +156,7 @@ const Domain = (props) => {
                                     </Tooltip>
                                 </IconButton>
 
-                                <IconButton
-                                    onClick={() =>
-                                        props.handleRequestToken(
-                                            props.id,
-                                            props.domain
-                                        )
-                                    }
-                                >
+                                <IconButton onClick={handleRequestToken}>
                                     <Tooltip title={'New Token'}>
                                         <ReplayIcon fontSize="large" />
                                     </Tooltip>
