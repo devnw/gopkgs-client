@@ -1,4 +1,4 @@
-import { Tooltip, IconButton } from '@mui/material'
+import { Tooltip, IconButton, Box } from '@mui/material'
 import copy from 'clipboard-copy'
 import React, { useState } from 'react'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
@@ -17,7 +17,8 @@ const Copy = (props) => {
 
     return (
         <div>
-            <Tooltip
+            <Box
+                component={Tooltip}
                 open={showTooltip}
                 title={'Copied to clipboard!'}
                 leaveDelay={1500}
@@ -27,11 +28,11 @@ const Copy = (props) => {
                 data={props.data}
             >
                 {props.children}
-            </Tooltip>
+            </Box>
             {!props.caption ? null : (
                 <div style={{ textAlign: 'right' }}>
-                    <IconButton>
-                        <ContentCopyIcon onClick={onCopy}></ContentCopyIcon>
+                    <IconButton onClick={onCopy}>
+                        <ContentCopyIcon></ContentCopyIcon>
                     </IconButton>
                 </div>
             )}

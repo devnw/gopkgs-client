@@ -9,7 +9,6 @@ import {
     Typography,
     TextField,
     Grid,
-    Tooltip,
 } from '@mui/material'
 
 import Copy from '../Copy'
@@ -35,8 +34,9 @@ const ValidateDomain = (props) => {
     }
 
     return (
-        <Dialog open={props.open} onClose={handleClose}>
+        <Dialog component="div" open={props.open} onClose={handleClose}>
             <DialogTitle
+                component="div"
                 style={{
                     textAlign: 'center',
                     color: statusColor,
@@ -45,11 +45,11 @@ const ValidateDomain = (props) => {
             >
                 {title}
             </DialogTitle>
-            <DialogContent>
+            <DialogContent component="div">
                 {props.validated ? (
-                    <DialogContentText>{`${props.domain} is verified.`}</DialogContentText>
+                    <DialogContentText component="div">{`${props.domain} is verified.`}</DialogContentText>
                 ) : (
-                    <DialogContentText>
+                    <DialogContentText component="div">
                         {dateInPast(new Date(props.validate_by), new Date()) ? (
                             <Typography
                                 variant="h3"
@@ -94,22 +94,19 @@ const ValidateDomain = (props) => {
                                     </div>
                                 </Typography>
                                 <Copy caption={true} data={props.token}>
-                                    <Tooltip title={'Click to Copy'}>
-                                        <TextField
-                                            id="domain-verification-token"
-                                            label="TXT Record"
-                                            fullWidth
-                                            fullHeight
-                                            defaultValue={props.token}
-                                            sx={{
-                                                marginTop: '30px',
-                                            }}
-                                            InputProps={{
-                                                readOnly: true,
-                                                multiline: true,
-                                            }}
-                                        />
-                                    </Tooltip>
+                                    <TextField
+                                        id="domain-verification-token"
+                                        label="TXT Record"
+                                        fullWidth
+                                        defaultValue={props.token}
+                                        sx={{
+                                            marginTop: '30px',
+                                        }}
+                                        InputProps={{
+                                            readOnly: true,
+                                            multiline: true,
+                                        }}
+                                    />
                                 </Copy>
                                 <Typography variant="h3">Step 2</Typography>
                                 <hr />
@@ -145,7 +142,7 @@ const ValidateDomain = (props) => {
                     </DialogContentText>
                 )}
             </DialogContent>
-            <DialogActions>
+            <DialogActions component="div">
                 {props.validated ? (
                     <Grid container spacing={2}>
                         <Grid item>

@@ -157,24 +157,26 @@ const Domains = (props) => {
     }
 
     return (
-        <Container sx={{ padding: '10px' }}>
-            <AddDomain add={addDomain} alert={props.alert} />
+        <>
+            <Container sx={{ padding: '10px' }}>
+                <AddDomain add={addDomain} alert={props.alert} />
 
-            {props.domains?.length > 0 ? (
-                <div>
-                    <Typography variant="h1" component="div" gutterBottom>
-                        Your Domains
-                    </Typography>
-                    <DomainsList
-                        alert={props.alert}
-                        domains={props.domains}
-                        handleValidateDomain={handleValidateDomain}
-                        handleReVerify={handleReVerify}
-                        handleRequestToken={handleRequestToken}
-                        handleDelete={handleDelete}
-                    />
-                </div>
-            ) : null}
+                {props.domains?.length > 0 ? (
+                    <div>
+                        <Typography variant="h1" component="div" gutterBottom>
+                            Your Domains
+                        </Typography>
+                        <DomainsList
+                            alert={props.alert}
+                            domains={props.domains}
+                            handleValidateDomain={handleValidateDomain}
+                            handleReVerify={handleReVerify}
+                            handleRequestToken={handleRequestToken}
+                            handleDelete={handleDelete}
+                        />
+                    </div>
+                ) : null}
+            </Container>
 
             {selectedDomain == null ? null : (
                 <ValidateDomain
@@ -198,7 +200,7 @@ const Domains = (props) => {
                     handleDelete={handleDelete}
                 />
             )}
-        </Container>
+        </>
     )
 }
 

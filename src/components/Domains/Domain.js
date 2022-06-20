@@ -88,7 +88,7 @@ const Domain = (props) => {
                 borderRadius: '0px',
             }}
         >
-            <CardActionArea onClick={handleValidateOpen}>
+            <CardActionArea component="div" onClick={handleValidateOpen}>
                 <Grid
                     container
                     spacing={2}
