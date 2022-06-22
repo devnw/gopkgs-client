@@ -15,7 +15,6 @@ import Ref from '../../components/Ref'
 import TOC from '../../components/TOC'
 
 import LanguageIcon from '@mui/icons-material/Language'
-import RssFeedIcon from '@mui/icons-material/RssFeed'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import RedditIcon from '@mui/icons-material/Reddit'
 import YouTubeIcon from '@mui/icons-material/YouTube'
