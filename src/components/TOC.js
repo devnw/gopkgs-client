@@ -15,7 +15,7 @@ const RecursiveTOC = (children, headers) => {
         return []
     }
 
-    if (!children) {
+    if (!children || !Array.isArray(children)) {
         return []
     }
 

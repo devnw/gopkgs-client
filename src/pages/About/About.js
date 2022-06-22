@@ -1,10 +1,25 @@
 import React from 'react'
 import data from '../../content/faq.json'
-import { Container, Typography } from '@mui/material'
+import {
+    Container,
+    Typography,
+    Grid,
+    IconButton,
+    Tooltip,
+    Box,
+    Link,
+} from '@mui/material'
 import './About.scss'
 
 import Ref from '../../components/Ref'
 import TOC from '../../components/TOC'
+
+import LanguageIcon from '@mui/icons-material/Language'
+import RssFeedIcon from '@mui/icons-material/RssFeed'
+import TwitterIcon from '@mui/icons-material/Twitter'
+import RedditIcon from '@mui/icons-material/Reddit'
+import YouTubeIcon from '@mui/icons-material/YouTube'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 const About = () => {
     const aboutInfo = data.map((ele, idx) => {
@@ -57,6 +72,111 @@ const About = () => {
                     easy to use, repeatable, and secure way.
                 </Typography>
                 <TOC render />
+                <Ref variant="h2" className="about-heading">
+                    Creators
+                </Ref>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6}>
+                        <Grid container spacing={3}>
+                            <Grid item xs={12}>
+                                <Ref variant="h3" sx={{ textAlign: 'center' }}>
+                                    Benji Vesterby
+                                </Ref>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Box fullWidth>
+                                    <Tooltip title="Website">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://benjiv.com"
+                                        >
+                                            <LanguageIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Tooltip title="GitHub">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://github.com/benjivesterby"
+                                        >
+                                            <GitHubIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Tooltip title="YouTube">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://www.youtube.com/c/benjivesterby"
+                                        >
+                                            <YouTubeIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Tooltip title="Twitter">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://twitter.com/benjivesterby"
+                                        >
+                                            <TwitterIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Tooltip title="Reddit">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://www.reddit.com/user/nauntilus"
+                                        >
+                                            <RedditIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                </Box>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <Grid container spacing={3}>
+                            <Grid item xs={12}>
+                                <Ref variant="h3" sx={{ textAlign: 'center' }}>
+                                    Adam Schaal
+                                </Ref>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Box fullWidth>
+                                    <Tooltip title="Website">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://kernelcon.org/"
+                                        >
+                                            <LanguageIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    <Tooltip title="GitHub">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://github.com/clevernyyyy"
+                                        >
+                                            <GitHubIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    {/* <Tooltip title="YouTube">
+                                        <IconButton component={Link} href="">
+                                            <YouTubeIcon />
+                                        </IconButton>
+                                    </Tooltip> */}
+                                    <Tooltip title="Twitter">
+                                        <IconButton
+                                            component={Link}
+                                            href="https://twitter.com/clevernyyyy"
+                                        >
+                                            <TwitterIcon />
+                                        </IconButton>
+                                    </Tooltip>
+                                    {/* <Tooltip title="Reddit">
+                                        <IconButton component={Link} href="">
+                                            <RedditIcon />
+                                        </IconButton>
+                                    </Tooltip> */}
+                                </Box>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
                 <div>{aboutInfo}</div>
             </TOC>
         </Container>
