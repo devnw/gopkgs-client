@@ -9,7 +9,6 @@ const Docs = () => {
         <Container sx={{ padding: '10px' }}>
             <TOC>
                 <Ref variant="h1">Documentation</Ref>
-
                 <Box>
                     <Ref variant="h2">Configuring a Domain</Ref>
                     <Typography variant="p">
@@ -101,6 +100,37 @@ const Docs = () => {
                     </Typography>
                 </Box>
                 <Ref variant="h2">Configuring a Module</Ref>
+                <Typography variant="p">
+                    From the <a href="/modules">modules</a> page, you can add
+                    modules to verified domains.
+                    <Ref variant="h3">Step 1: Select the Domain</Ref>
+                    <Typography variant="p">
+                        Select the domain you want to add the module to from the
+                        drop down list. Only domains that have been verified
+                        will be available for selection.
+                    </Typography>
+                    <Ref variant="h3">
+                        Step 2: Set the Version Control System
+                    </Ref>
+                    <Typography variant="p">
+                        Select the version control system you want to use from
+                        the VCS drop down list. The default is Git, but you can
+                        select any of the version control systems supported by
+                        Go.
+                    </Typography>
+                    <Ref variant="h3">Step 3: Module Name and Repository</Ref>
+                    <Typography variant="p">
+                        Set the module name and repository URL.
+                    </Typography>
+                    <Ref variant="h3">
+                        Step 4: Add the Documentation URL (optional)
+                    </Ref>
+                    <Ref variant="h3">Step 5: Click Save</Ref>
+                    <Typography variant="p">
+                        Now for the hardest part. Click the "Save" button to add
+                        the module to your domain.
+                    </Typography>
+                </Typography>
                 <Ref variant="h3">
                     Configuring a Module with a Private Repository
                 </Ref>
@@ -109,11 +139,20 @@ const Docs = () => {
                     If you are migrating ownership of a module, you will need
                     contact the original owner to transfer ownership and have
                     them email <strong>info@gopkgs.org</strong>. Currently there
-                    is not a way to do this VIA the UI (This will be added with{' '}
+                    is not a way to do this VIA the UI (
                     <a href="https://github.com/devnw/gopkgs-client/issues/29">
-                        this change
+                        GitHub Issue #29
                     </a>
-                    )
+                    ).
+                </Typography>
+                <Ref variant="h2">API Access</Ref>
+                <Typography variant="p">
+                    The API is currently accessible to any user with a valid
+                    JWT. Documentation for the API will come in the future (
+                    <a href="https://github.com/devnw/gopkgs-client/issues/30">
+                        GitHub Issue #30
+                    </a>
+                    ).
                 </Typography>
             </TOC>
         </Container>
