@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import MenuIcon from '@mui/icons-material/Menu'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 import {
     AppBar,
@@ -15,6 +16,7 @@ import {
     Button,
     Tooltip,
     MenuItem,
+    Link as MuiLink,
 } from '@mui/material'
 
 import { useAuth0 } from '@auth0/auth0-react'
@@ -179,6 +181,29 @@ const NavBar = (props) => {
                         >
                             Sponsor
                         </Button>
+                    </Box>
+
+                    <Box sx={{ marginRight: '10px' }}>
+                        <Tooltip title="Frontend Repository">
+                            <IconButton
+                                component={MuiLink}
+                                href="https://github.com/devnw/gopkgs-client"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <GitHubIcon sx={{ color: '#4197CB' }} />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Backend Repository">
+                            <IconButton
+                                component={MuiLink}
+                                href="https://github.com/devnw/srv.gopkgs.org"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <GitHubIcon sx={{ color: '#4197CB' }} />
+                            </IconButton>
+                        </Tooltip>
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
                         {!isAuthenticated ? (

@@ -140,7 +140,11 @@ const Docs = () => {
                     contact the original owner to transfer ownership and have
                     them email <strong>info@gopkgs.org</strong>. Currently there
                     is not a way to do this VIA the UI (
-                    <a href="https://github.com/devnw/gopkgs-client/issues/29">
+                    <a
+                        href="https://github.com/devnw/gopkgs-client/issues/29"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         GitHub Issue #29
                     </a>
                     ).
@@ -149,7 +153,11 @@ const Docs = () => {
                 <Typography variant="p">
                     The API is currently accessible to any user with a valid
                     JWT. Documentation for the API will come in the future (
-                    <a href="https://github.com/devnw/gopkgs-client/issues/30">
+                    <a
+                        href="https://github.com/devnw/gopkgs-client/issues/30"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         GitHub Issue #30
                     </a>
                     ).
