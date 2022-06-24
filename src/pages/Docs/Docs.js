@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container, Typography, Box } from '@mui/material'
 
+import './Docs.scss'
+
 import Ref from '../../components/Ref'
 import TOC from '../../components/TOC'
 
@@ -134,6 +136,79 @@ const Docs = () => {
                 <Ref variant="h3">
                     Configuring a Module with a Private Repository
                 </Ref>
+                <Typography variant="p">
+                    There are some additional steps for configuring a custom
+                    domain with private modules. To ensure that{' '}
+                    <code>go get</code> works as expected, you need to add the
+                    following to your <code>~/.gitconfig</code> file using this
+                    command (assuming your private modules are hosted on GitHub,
+                    replace the <code>github.com</code> with the domain name
+                    where your private modules are hosted):
+                    <br />
+                    <br />
+                    <code>
+                        git config --global url."git@github.com:".insteadOf
+                        "https://github.com/"
+                    </code>
+                    <br />
+                    <br />
+                    <strong>NOTE:</strong> This GIT configuration will use the
+                    repository URL, not the custom module URL.
+                    <br />
+                    <br />
+                    You can also add it directly to the{' '}
+                    <code>~/.gitconfig</code> file if you have access to the
+                    file following the steps detailed{' '}
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://www.digitalocean.com/community/tutorials/how-to-use-a-private-go-module-in-your-own-project#providing-private-module-credentials-for-ssh"
+                    >
+                        here
+                    </a>
+                    .
+                    <br />
+                    <br />
+                    The last step is to add your private modules to the{' '}
+                    <code>GOPRIVATE</code> variable. This can be done either by
+                    adding the account root path (i.e.{' '}
+                    <code>export GOPRIVATE=github.com/user/repo</code>) or by
+                    adding the account root path and the module name (i.e.{' '}
+                    <code>export GOPRIVATE=github.com/user/repo</code>).
+                    <br />
+                    <br />
+                    If you're using a custom domain the custom domain name
+                    should be used instead of the repository URL. For example,
+                    if you're using a custom domain called{' '}
+                    <code>mydomain.com</code> and your module is named{' '}
+                    <code>mymodule</code>, you would add <strong>ONE</strong>{' '}
+                    the following to the <code>GOPRIVATE</code> variable:
+                    <br />
+                    <br />
+                    This will add the custom domain to the GOPRIVATE variable.
+                    <br />
+                    <code>export GOPRIVATE=mydomain.com</code>
+                    <br />
+                    <br />
+                    This will add the custom module name to the GOPRIVATE
+                    variable.
+                    <br />
+                    <code>export GOPRIVATE=mydomain.com/mymodule</code>
+                    <br />
+                    <br />
+                    <strong>NOTE:</strong> For multiple private modules, you add
+                    them all to the <code>GOPRIVATE</code> variable separated by
+                    a comma.
+                    <br />
+                    <br />
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://www.digitalocean.com/community/tutorials/how-to-use-a-private-go-module-in-your-own-project"
+                    >
+                        Click here for a more detailed explanation.
+                    </a>
+                </Typography>
                 <Ref variant="h2">Migrating Maintainership</Ref>
                 <Typography variant="p">
                     If you are migrating ownership of a module, you will need
