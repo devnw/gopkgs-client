@@ -59,8 +59,8 @@ const Docs = () => {
                         .
                     </Typography>
                     <Ref variant="h3">Step 2: Add Domain to Domains Page</Ref>
-                    Navigate to the <a href="/domains">domains</a> page and add
-                    the domain using the Add Domain input.
+                    Login then navigate to the domains page and add the domain
+                    using the Add Domain input.
                     <br />
                     <br />
                     <strong>NOTE:</strong> It is recommended to use a{' '}
@@ -95,15 +95,15 @@ const Docs = () => {
                     <Ref variant="h3">Step 5: Verify Domain</Ref>
                     <Typography variant="p">
                         Once the DNS records have propagated, you can verify the
-                        domain by clicking the checkmark icon in the{' '}
-                        <a href="/domains">domains</a> page, or opening the
+                        domain by clicking the checkmark icon in the domain list
+                        next to the domain needing verification, or opening the
                         domain details dialog by clicking the red exclamation
                         icon, then clicking the "Verify" button.
                     </Typography>
                 </Box>
                 <Ref variant="h2">Configuring a Module</Ref>
                 <Typography variant="p">
-                    From the <a href="/modules">modules</a> page, you can add
+                    Login, then navigate to the modules page, where you can add
                     modules to verified domains.
                     <Ref variant="h3">Step 1: Select the Domain</Ref>
                     <Typography variant="p">

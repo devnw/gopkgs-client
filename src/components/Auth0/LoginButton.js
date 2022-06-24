@@ -7,7 +7,7 @@ const LoginButton = () => {
 
     return (
         <Button variant="contained" onClick={() => loginWithRedirect()}>
-            Log In
+            Log In / Register
         </Button>
     )
 }
