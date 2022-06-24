@@ -15,6 +15,26 @@
         ]
     },
     {
+        "heading": "Open Source & Bugs",
+        "questions": [
+            {
+                "additionalInfo": "",
+                "answer": "Yes!",
+                "question": "Is the code open source?"
+            },
+            {
+                "additionalInfo": "",
+                "answer": "<ul><li>You can view & contribute to the UI <a href=\"https://github.com/devnw/gopkgs-client\">here</a></li><li>You can view & contribute to the server/API source code <a href=\"https://github.com/devnw/srv.gopkgs.org\">here</a>.</li></ul>",
+                "question": "Where is the code?"
+            },
+            {
+                "additionalInfo": "",
+                "answer": "You can file enhancements or bugs <a href=\"https://github.com/devnw/gopkgs-client\">here</a>",
+                "question": "Where do I submit bugs or enchancement requests?"
+            }
+        ]
+    },
+    {
         "heading": "Cost",
         "questions": [
             {

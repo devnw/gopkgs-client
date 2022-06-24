@@ -21,7 +21,7 @@ const Docs = () => {
                     <Ref variant="h3">Step 1: Register A Domain</Ref>
                     <Typography variant="p">
                         If you don't already have a domain name, you can
-                        register one with the domain registrar. I recommend{' '}
+                        register one with a domain registrar. I recommend{' '}
                         <a
                             href="https://www.cloudflare.com/"
                             target="_blank"
@@ -59,8 +59,8 @@ const Docs = () => {
                         .
                     </Typography>
                     <Ref variant="h3">Step 2: Add Domain to Domains Page</Ref>
-                    Login then navigate to the domains page and add the domain
-                    using the Add Domain input.
+                    After logging in, navigate to the domains page and add the
+                    domain using the Add Domain input.
                     <br />
                     <br />
                     <strong>NOTE:</strong> It is recommended to use a{' '}
@@ -103,8 +103,8 @@ const Docs = () => {
                 </Box>
                 <Ref variant="h2">Configuring a Module</Ref>
                 <Typography variant="p">
-                    Login, then navigate to the modules page, where you can add
-                    modules to verified domains.
+                    After logging in, navigate to the modules page, where you
+                    can add modules to verified domains.
                     <Ref variant="h3">Step 1: Select the Domain</Ref>
                     <Typography variant="p">
                         Select the domain you want to add the module to from the
