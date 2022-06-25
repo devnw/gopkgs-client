@@ -12,7 +12,6 @@ import {
 import './About.scss'
 
 import Ref from '../../components/Ref'
-import TOC from '../../components/TOC'
 
 import LanguageIcon from '@mui/icons-material/Language'
 import TwitterIcon from '@mui/icons-material/Twitter'
@@ -60,124 +59,129 @@ const About = () => {
 
     return (
         <Container sx={{ padding: '10px' }}>
-            <TOC hasToc>
-                <Ref variant="h1">What is GoPkgs.org all about?</Ref>
-                <Typography variant="body1">
-                    Go Packages (<code>gopkgs.org</code>) is a FREE service for
-                    simplifying developer setup of Go (golang) custom import
-                    paths. Normally, you would have to manually setup static
-                    hosting with proper meta tags, and maintain that site. This
-                    service allows you to setup your import paths in a simple,
-                    easy to use, repeatable, and secure way.
-                </Typography>
-                <TOC render />
-                <Ref variant="h2" className="about-heading">
-                    Creators
-                </Ref>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12}>
-                                <Ref variant="h3" sx={{ textAlign: 'center' }}>
-                                    Benji Vesterby
-                                </Ref>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Box fullWidth>
-                                    <Tooltip title="Website">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://benjiv.com"
-                                        >
-                                            <LanguageIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    <Tooltip title="GitHub">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://github.com/benjivesterby"
-                                        >
-                                            <GitHubIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    <Tooltip title="YouTube">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://www.youtube.com/c/benjivesterby"
-                                        >
-                                            <YouTubeIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    <Tooltip title="Twitter">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://twitter.com/benjivesterby"
-                                        >
-                                            <TwitterIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    <Tooltip title="Reddit">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://www.reddit.com/user/nauntilus"
-                                        >
-                                            <RedditIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                </Box>
-                            </Grid>
+            <Ref variant="h1">What is GoPkgs.org all about?</Ref>
+            <Typography variant="body1">
+                Go Packages (<code>gopkgs.org</code>) is a FREE service for
+                simplifying developer setup of Go (golang) custom import paths.
+                Normally, you would have to manually setup static hosting with
+                proper meta tags, and maintain that site. This service allows
+                you to setup your import paths in a simple, easy to use,
+                repeatable, and secure way.
+            </Typography>
+            <Ref variant="h2" className="about-heading">
+                Creators
+            </Ref>
+            <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <Ref variant="h3" sx={{ textAlign: 'center' }}>
+                                Benji Vesterby
+                            </Ref>
                         </Grid>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12}>
-                                <Ref variant="h3" sx={{ textAlign: 'center' }}>
-                                    Adam Schaal
-                                </Ref>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Box fullWidth>
-                                    <Tooltip title="Website">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://kernelcon.org/"
-                                        >
-                                            <LanguageIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    <Tooltip title="GitHub">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://github.com/clevernyyyy"
-                                        >
-                                            <GitHubIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    {/* <Tooltip title="YouTube">
-                                        <IconButton component={Link} href="">
-                                            <YouTubeIcon />
-                                        </IconButton>
-                                    </Tooltip> */}
-                                    <Tooltip title="Twitter">
-                                        <IconButton
-                                            component={Link}
-                                            href="https://twitter.com/clevernyyyy"
-                                        >
-                                            <TwitterIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    {/* <Tooltip title="Reddit">
-                                        <IconButton component={Link} href="">
-                                            <RedditIcon />
-                                        </IconButton>
-                                    </Tooltip> */}
-                                </Box>
-                            </Grid>
+                        <Grid
+                            item
+                            xs={12}
+                            sx={{ display: 'flex', justifyContent: 'center' }}
+                        >
+                            <Box fullWidth>
+                                <Tooltip title="Website">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://benjiv.com"
+                                    >
+                                        <LanguageIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="GitHub">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://github.com/benjivesterby"
+                                    >
+                                        <GitHubIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="YouTube">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://www.youtube.com/c/benjivesterby"
+                                    >
+                                        <YouTubeIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="Twitter">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://twitter.com/benjivesterby"
+                                    >
+                                        <TwitterIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="Reddit">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://www.reddit.com/user/nauntilus"
+                                    >
+                                        <RedditIcon />
+                                    </IconButton>
+                                </Tooltip>
+                            </Box>
                         </Grid>
                     </Grid>
                 </Grid>
-                <div>{aboutInfo}</div>
-            </TOC>
+                <Grid item xs={12} sm={6}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <Ref variant="h3" sx={{ textAlign: 'center' }}>
+                                Adam Schaal
+                            </Ref>
+                        </Grid>
+                        <Grid
+                            item
+                            xs={12}
+                            sx={{ display: 'flex', justifyContent: 'center' }}
+                        >
+                            <Box fullWidth>
+                                <Tooltip title="Website">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://kernelcon.org/"
+                                    >
+                                        <LanguageIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                <Tooltip title="GitHub">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://github.com/clevernyyyy"
+                                    >
+                                        <GitHubIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                {/* <Tooltip title="YouTube">
+                                        <IconButton component={Link} href="">
+                                            <YouTubeIcon />
+                                        </IconButton>
+                                    </Tooltip> */}
+                                <Tooltip title="Twitter">
+                                    <IconButton
+                                        component={Link}
+                                        href="https://twitter.com/clevernyyyy"
+                                    >
+                                        <TwitterIcon />
+                                    </IconButton>
+                                </Tooltip>
+                                {/* <Tooltip title="Reddit">
+                                        <IconButton component={Link} href="">
+                                            <RedditIcon />
+                                        </IconButton>
+                                    </Tooltip> */}
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <div>{aboutInfo}</div>
         </Container>
     )
 }
