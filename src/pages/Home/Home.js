@@ -43,20 +43,20 @@ const Home = () => {
             </Typography>
             <Ref variant="h2">How do custom imports work?</Ref>
             <Typography variant="body1">
-                Custom imports in Go are handled by the Go toolchain by querying
-                the domain in the import and passing a query string of{' '}
-                <code>?go-get=1</code> to the domain. If the URL contains a meta
-                tag with the <code>go-import</code> attribute, the toolchain
-                will use the configuration to redirect the import and pull the
-                module from the configured version control system.
+                Custom imports in Go are handled by the Go toolchain. The Go
+                toolchain queries the import URl and passing a query string of{' '}
+                <code>?go-get=1</code>. If the URL contains a meta tag with the{' '}
+                <code>go-import</code> attribute, the toolchain will use the
+                meta tag to redirect the import and pull the module from the
+                configured version control system.
                 <br />
                 <br />
-                Because the <code>go-get</code> query string is used by the
+                Because the <code>?go-get=1</code> query string is used by the
                 toolchain, gopkgs will host the proper meta tag for the module
                 when that query string is used. If you navigate to the module's
-                import path, without the <code>go-get</code> query string, the
-                gopkgs server will redirect to the module's domain URL if it is
-                configured on the module.
+                import path, without the <code>?go-get=1</code> query string,
+                the gopkgs server will redirect to the module's domain URL if it
+                is configured on the module.
             </Typography>
         </Container>
     )
